@@ -167,10 +167,11 @@ $$
 
 &hellip; where the two parenthesized expressions in the result contain terms that match, and thus can be added together, when one of the expressions is shifted one step to the right or left:
 
-$$ \begin{bmatrix}
+$$ \begin{matrix}
     X \\
+    \hline \\
     Y
-\end{bmatrix} $$
+\end{matrix} $$
 
 asdasd
 

@@ -12,7 +12,7 @@ When someone attempted to post a pirate copy of this book to a Facebook group th
 - [My perspective.](#my-perspective)
 - [The book’s goal.](#the-books-goal)
 - [Chapter 1 &mdash; “Hello again, C++!”.](#chapter-1-mdash-hello-again-c)
-- [Bjeff!](#bjeff)
+- [Chapter 2 &mdash; “Containers, iterators, and ranges”.](#chapter-2-mdash-containers-iterators-and-ranges)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -38,7 +38,7 @@ Another reason was that I was really disappointed with C++20, e.g.:
 * Minor point but still *no qualified function name macro* like [`__func__`](https://en.cppreference.com/w/c/language/function_definition#func);  
   instead C++20 added `std::source_location`, which does not help when one still has to use macros with compiler specific implementations to get qualified function names for source locations, and which additionally does not have no-throwing copying so that it’s grossly imperfectly suited for being carried by an exception.
 
-So, I am reader primarily interested in the new C++20 and C++23 core language stuff. As the bullet points show I have some strong and well founded opinions. As they also show I’m not shy of pointing out problems.
+So, I am a reader primarily interested in the new C++20 and C++23 core language stuff. As the bullet points show I have some strong and well founded opinions. As they also show I’m not shy of pointing out problems.
 
 I’m well versed in C++98, C++03, C++11, C++14 and C++17, and so able to evaluate how well and how widely the book covers the new features in C++11 and later standards.
 
@@ -117,12 +117,16 @@ And also, how one can use the {fmt} library also with C++17, instead of the curr
 
 And in the area of mentioning problems and not shoving them under the nearest carpet: mentioning that C++ as of C++23 still lacks portable Unicode *console input* functionality, which it should have so that a student also in portable C++ can write a little program that asks for his or her name, and that displays it correctly in a personalized greeting &mdash; the natural “Hello, world!” 2 program.
 
-Nitpick 1: for deduced return type *notation* I prefer to specify that explicitly, like `auto foo() -> auto { …`, instead of implicitly like `auto foo() { …` as in the book’s example. I’m not entirely sure but I think the explicit deduced return type notation, my preferred notation, was introduced in C++14. It was not valid in C++11.
+Nitpick 1: `main` is described as “the usual entry point for executable
+code”. The “entry point” term for `main` has unfortunately now even been adopted by cppreference, so this description uses now established terminology and is OK that way. But there’s no need to use that term and using it is very misleading, in two ways: (1) user code can be executed before and after `main`, so `main` is decidely not where execution enters the user code of the program, and (2) the term *entry point* used to refer unambigously to the machine code level entry point, the entry point that one specifies to a linker, but now when *entry point* is used also for `main` one may need to clarify (especially to learners) whether one is talking about the *machine code entry point* or the *user code “entry point”*, which should be unnecessary to do.
 
-Nitpick 2: for the deduced return type *discussion* I would have liked mention of and a link to Andrei Alexandrescu’s classic C++03 article [“Min and Max Redivivus”](https://web.archive.org/web/20030114105307/http://www.cuj.com/experts/1904/alexandr.htm).
+Nitpick 2: for deduced return type *notation* I prefer to specify that explicitly, like `auto foo() -> auto { …`, instead of implicitly like `auto foo() { …` as in the book’s example. I’m not entirely sure but I think the explicit deduced return type notation, my preferred notation, was introduced in C++14. It was not valid in C++11.
+
+Nitpick 3: for the deduced return type *discussion* I would have liked mention of and a link to Andrei Alexandrescu’s classic C++03 article [“Min and Max Redivivus”](https://web.archive.org/web/20030114105307/http://www.cuj.com/experts/1904/alexandr.htm).
 
 General impression: the chapter does a good job of pointing out that modern C++ is different from C++03, but is too long-winded about other intro stuff, and as I see it the text really should have mentioned replacing iostreams output with C++23’s `std::print` or the {fmt} library &mdash; a big and fundamental change. 
 
-## Bjeff!
+## Chapter 2 &mdash; “Containers, iterators, and ranges”.
+
 
 asdasd

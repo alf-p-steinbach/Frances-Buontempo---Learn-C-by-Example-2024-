@@ -151,19 +151,17 @@ The “and/or”: one doesn’t always need to understand everything about the p
 
 ---
 
-An efficiency-oriented perspective on Pascal’s triangle starts with *understanding* what it is about, not just remembering the mechanics of one way to generate it.
+An C++-ish efficiency oriented perspective on Pascal’s triangle starts with *understanding* what it is about, not just remembering the mechanics of one way to generate it.
 
 Probably Pascal was investigating the coefficients of the terms that you get when you multiply out $(a + b)^n$. For example, $(a + b)^2 = a^2 + 2ab + b^2$, with coefficients **1**, **2** and **1**, which are the third line in Pascal’s triangle. And what do you get when you multiply that by $(a + b)$ again, thus forming $(a + b)^3$?
 
 Well,
 
-$$
-\begin{align*}
+$$ \begin{align*}
     (a + b)\cdot(a^2 + 2ab + b^2) &= a\cdot(a^2 + 2ab + b^2) + b\cdot(a^2 + 2ab + b^2)\\
     \\
     &= (a^3 + 2a^2b + ab^2) + (a^2b + 2ab^2 + b^3)
-\end{align*}
-$$
+\end{align*} $$
 
 &hellip; where the two parenthesized expressions in the result contain terms that match, and thus can be added together, when one of the expressions is shifted one step to the right or left:
 

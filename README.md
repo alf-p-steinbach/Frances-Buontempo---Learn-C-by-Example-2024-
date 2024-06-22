@@ -111,9 +111,15 @@ When the book was written compiler support for `std::print` was probably rare. F
 
 The replacement of iostreams output with functionality adopted from [the {fmt} library](https://github.com/fmtlib/fmt), such as `std::print`, is a fundamental change, that I think should have been mentioned for “Hello, world!”.
 
+And also, how one can use the {fmt} library also with C++17, instead of the currently bleeding edge C++23 `std::print`. Perhaps also mention that the {fmt} library, but not the adoption in the C++ standard library, supports colored output via ANSI escapes. I believe that that is of interest to students: they often ask how to do colors.
+
+And in the area of mentioning problems and not shoving them under the nearest carpet: mentioning that C++ as of C++23 still lacks portable Unicode *console input* functionality, so that a student can write a little program that asks for his or her name, and that uses it in a personalized greeting, also in Windows &mdash; the natural “Hello, world!” 2 program.
+
 Nitpick 1: for deduced return type *notation* I prefer to specify that explicitly, like `auto foo() -> auto { …`, instead of implicitly like `auto foo() { …` as in the book’s example. I’m not entirely sure but I think the explicit deduced return type notation, my preferred notation, was introduced in C++14. It was not valid in C++11.
 
 Nitpick 2: for the deduced return type *discussion* I would have liked mention of and a link to Andrei Alexandrescu’s classic C++03 article [“Min and Max Redivivus”](https://web.archive.org/web/20030114105307/http://www.cuj.com/experts/1904/alexandr.htm).
+
+General impression: the chapter does a good job of pointing out that modern C++ is different from C++03, but is too long-winded about other intro stuff, and as I see it the text really should have mentioned replacing iostreams output with C++23’s `std::print` or the {fmt} library &mdash; a big and fundamental change. 
 
 ## Bjeff!
 

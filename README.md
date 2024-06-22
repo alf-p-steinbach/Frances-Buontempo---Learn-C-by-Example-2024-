@@ -145,6 +145,11 @@ Three main improvement potentials I see with this chapter:
 * Crossing all the t’s, dotting all the i’s, and filling in all the spaces.  
   I would have liked an *explanation* of the connection between Pascal’s triangle and combinations (see below, it’s easy when you have seen it); I would have liked a reference to I believe it was MIT’s Barbara Liskov for the triangles pattern; and, efficiency!, efficiency!, I would have liked not just mention of how that pattern needs no more than 0 and 1 for each number, so that it can be arbitrarily large (as opposed to max 35 rows), but also an example and reference to Stephen Wolfram for how to do that pattern *efficiently* and *amazingly* with O(*n*) or for small *n* O(1) storage instead of O(*n*²), by using the C++ bit level operators.
 
+There is a strong connection between the three points above, for both efficiency and correctness depend crucially on *understanding* and/or *knowing* a good deal about the problem that the code is intended to solve, and understanding and acquiring knowledge of the problem is much easier when one is given an explanation and/or references.
+
+The “and/or”: one doesn’t always need to understand everything about the problem; knowledge can suffice. For example, the sum of the numbers 1² through *n*² can be calculated as just *n*(*n* + 1)(2*n* + 1 )/6. It’s entirely OK to just use the formula in one’s code without understanding the details of how to derive it or prove it, and entirely understanding the formula will probably not help, but a reference, e.g. a mention of and link to “[pyramidal numbers](https://en.wikipedia.org/wiki/Square_pyramidal_number)”, can help.
+
 ---
+
 
 asdasd

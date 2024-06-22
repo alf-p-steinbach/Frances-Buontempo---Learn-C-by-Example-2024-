@@ -138,11 +138,11 @@ Along the way the ranges sub-library and C++20’s `std::format` appear, with me
 
 Three main improvement potentials I see with this chapter:
 
-* Efficiency is mostly not considered.  
-  Relative to the overhead of console output, internal efficiency for computing and for checking the triangle is insignificant. But the final console presentation is not the goal: the goal is to learn about C++ things. And in *that* context grossly inefficient techniques such as using a `vector` of `vector`s as a half matrix to store the triangle in, is very un-C++-ish and misleading about what’s reasonable.
-* A focus on checking rather than guaranteeing correctness.  
-  When one deals directly with a `vector` of `vector`s one has no guarantee what they contain. Then checking (as the chapter exemplifies) can be a good idea. But much better, which I wish this chapter had also or alternatively exemplified and emphasized: providing the data via a class, an abstraction, can *guarantee* correctness.
-* Not crossing all the t’s, dotting all the i’s, and filling in all the spaces.  
+* Considering efficiency.  
+  Relative to the overhead of console output, internal efficiency for computing and for checking the triangle is insignificant. But the final console presentation is not the goal: the goal is to learn about C++ things. And in *that* context grossly inefficient techniques such as using a `vector` of `vector`s as a half matrix to store the triangle in, is very un-C++-ish and misleading about what’s reasonable: pointing out and exemplifying how one can do things in more reasonably efficient ways could really help the reader.
+* Guaranteeing rather than just checking correctness.  
+  When one deals directly with a `vector` of `vector`s one has no guarantee what they contain. Then checking (as the chapter exemplifies) can be a good idea. But I wish this chapter had also or alternatively exemplified and emphasized that providing the data via a class, an abstraction, can *guarantee* correctness.
+* Crossing all the t’s, dotting all the i’s, and filling in all the spaces.  
   Casting myself as a learner here I would have liked an *explanation* of the connection between Pascal’s triangle and combinations (see below, it’s easy when you have seen it); I would have liked a reference to I believe it was MIT’s Barbara Liskov for the triangles pattern; and, efficiency!, efficiency!, I would have liked an example and reference to Stephen Wolfram for a how to do that pattern *efficiently* and *amazingly* using the C++ bit level operators.
 
 ---

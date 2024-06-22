@@ -1,4 +1,4 @@
-A June 2014 review & critique of
+A June 2024 review & critique of
 # <span>Frances Buontempo &ndash; “Learn C++ by Example” (2024)</span>
 
 <img src="images/cover.png" width="50%" align="right">

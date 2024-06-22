@@ -96,6 +96,8 @@ auto main() -> int
 
 Why does that matter? Well, with C++11 the only change from C++03 was the trailing return type syntax. But with C++23 one will reasonably use `std::print` instead of iostreams, both in order to get general Unicode text presented correctly, for the better support for internationalization that format strings give, and as a single unified way to do formatting that is super fast, efficiency!, efficiency!, for number-to-text conversion. 
 
+The C++23 example below is unfortunately not given in the book:
+
 [*C++23*](code/ch1/hello.c++23.cpp):
 
 ```cpp

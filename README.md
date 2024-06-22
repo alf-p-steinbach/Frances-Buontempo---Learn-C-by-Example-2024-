@@ -147,7 +147,7 @@ Three main improvement potentials I see with this chapter:
 
 There is a strong connection between the three points above, for both efficiency and correctness depend crucially on *understanding* and/or *knowing* a good deal about the problem that the code is intended to solve, and understanding and acquiring knowledge of the problem is much easier when one is given an explanation and/or references.
 
-The “and/or”: one doesn’t always need to understand everything about the problem; knowledge can suffice. For example, the sum of the numbers 1² through *n*² can be calculated as just *n*(*n* + 1)(2*n* + 1 )/6. It’s entirely OK to just use the formula in one’s code without understanding the details of how to derive it or prove it, and entirely understanding the formula will probably not help, but a reference, e.g. a mention of and link to “[pyramidal numbers](https://en.wikipedia.org/wiki/Square_pyramidal_number)”, can help.
+The “and/or”: one doesn’t always need to understand everything about the problem; knowledge can suffice. For example, the sum of the numbers 1² through *n*² can be calculated as just *n*(*n* + 1)(2*n* + 1 )/6. It’s OK to just use the formula in one’s code without understanding the details of how to derive it or prove it, and understanding the formula will probably not help, but a reference, e.g. a mention of and perhaps also link to “[pyramidal numbers](https://en.wikipedia.org/wiki/Square_pyramidal_number)”, can help.
 
 ---
 

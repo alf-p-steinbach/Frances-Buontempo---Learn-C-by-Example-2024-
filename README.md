@@ -11,7 +11,7 @@ When someone attempted to post a pirate copy of this book to a Facebook group th
 
 - [My perspective.](#my-perspective)
 - [The book’s goal.](#the-books-goal)
-- [Snurrepip?](#snurrepip)
+- [Chapter 1 &mdash; “Hello again, C++!”.](#chapter-1-mdash-hello-again-c)
 - [Bjeff!](#bjeff)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->

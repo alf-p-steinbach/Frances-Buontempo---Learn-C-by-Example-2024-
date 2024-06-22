@@ -128,5 +128,23 @@ General impression: the chapter does a good job of pointing out that modern C++ 
 
 ## Chapter 2 &mdash; “Containers, iterators, and ranges”.
 
+Chapter 2, titled “Containers, iterators, and ranges”, primarily introduces item list notation (curly braces), move semantics and range based loops with `auto`.
+
+This is done very naturally by iterative development of code to display [Pascal’s triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle).
+
+Along the way the ranges sub-library and C++20’s `std::format` appear, with mention that the latter is a partial adoption from the 3<sup>rd</sup> party [{fmt} library](https://github.com/fmtlib/fmt), but alas no mention of the separate original 3<sup>rd</sup> party [Ranges v3 library](https://github.com/ericniebler/range-v3) or its precursor the [Boost Range sub-library](https://www.boost.org/doc/libs/1_85_0/libs/range/doc/html/index.html).
+
+---
+
+Three main problems I see with this chapter:
+
+* Efficiency is mostly not considered.  
+  Relative to the overhead of console output, internal efficiency for computing and for checking the triangle is insignificant. But the final console presentation is not the goal: the goal is to learn about C++ things. And in *that* context grossly inefficient techniques such as using a `vector` of `vector`s as a half matrix to store the triangle in, is very un-C++-ish and misleading about what’s reasonable.
+* A focus on checking rather than guaranteeing correctness.  
+  When one deals directly with a `vector` of `vector`s one has no guarantee what they contain. Then checking (as the chapter exemplifies) can be a good idea. But much better, which I wish this chapter had also or alternatively exemplified and emphasized: providing the data via a class, an abstraction, can *guarantee* correctness.
+* Not crossing all the t’s, dotting all the i’s, and filling in all the spaces.  
+  Casting myself as a learner here I would have liked an *explanation* of the connection between Pascal’s triangle and combinations (see below, it’s easy when you have seen it); I would have liked a reference to I believe it was MIT’s Barbara Liskov for the triangles pattern; and, efficiency!, efficiency!, I would have liked an example and reference to Stephen Wolfram for a how to do that pattern *efficiently* and *amazingly* using the C++ bit level operators.
+
+---
 
 asdasd

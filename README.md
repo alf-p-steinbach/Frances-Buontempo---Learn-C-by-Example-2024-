@@ -136,7 +136,7 @@ Along the way the ranges sub-library and C++20’s `std::format` appear, with me
 
 ---
 
-Three main problems I see with this chapter:
+Three main improvement potentials I see with this chapter:
 
 * Efficiency is mostly not considered.  
   Relative to the overhead of console output, internal efficiency for computing and for checking the triangle is insignificant. But the final console presentation is not the goal: the goal is to learn about C++ things. And in *that* context grossly inefficient techniques such as using a `vector` of `vector`s as a half matrix to store the triangle in, is very un-C++-ish and misleading about what’s reasonable.

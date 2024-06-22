@@ -155,7 +155,7 @@ An C++-ish efficiency oriented perspective on Pascal’s triangle starts with *u
 
 Probably Pascal was investigating the coefficients of the terms that you get when you multiply out $(a + b)^n$. For example, $(a + b)^2 = a^2 + 2ab + b^2$, with coefficients **1**, **2** and **1**, which are the third line in Pascal’s triangle. And what do you get when you multiply that by $(a + b)$ again, thus forming $(a + b)^3$?
 
-Well,
+Well, *a* and *b* are on an equal footing so the result will necessarily be symmetrical, as 1, 2 and 1 is:
 
 $$ \begin{align*}
     (a + b)\cdot(a^2 + 2ab + b^2) &= a\cdot(a^2 + 2ab + b^2) + b\cdot(a^2 + 2ab + b^2)\\

@@ -64,9 +64,56 @@ and quote chapter and verse of a previous standard, this book will
 help you focus on a handful of new features to get you back in the
 driving seat.
 
-## Snurrepip?
+## Chapter 1 &mdash; “Hello again, C++!”.
 
-asdasdasdasd
+Chapter 1, called “Hello again, C++!”, is a bit of this and that:
+
+* some praise of the C++ language, mentioning many different things it’s used for;
+* a long-winded heads up warning that there’s much to learn;
+* some more praise for C++, e.g. “C++ can be awesome”;
+* the aforementioned “Why read this book”;
+* a section “Who this book is for” where incongrously all that's said about that is the very first sentence, “This book is aimed at people who have used a little, or even a lot, of
+the language and lost track of recent changes”, and the rest reiterates how the book will guide the reader so don’t panic;
+* a C++11 “Hello, world!” program that introduces the trailing return type syntax (modern function declaration syntax like `auto foo() -> int`); and
+* an elaboration of that example that shows the power of the new syntax, and additionally introduces deduced return type but without introducing a term for that;
+* an overview of what one can expect to learn from the book; and
+* a section “Some pro tips” that introduces three currently very useful web sites, namely [C++ Insights](https://cppinsights.io/), [Compiler Explorer](https://godbolt.org/) and [cppreference.com](https://en.cppreference.com/w/cpp/compiler_support), plus reiterates the advice **Don’t Panic!** which I think is very good advice, except perhaps after some dolphin says “So long and thanks for all the fish!”.
+
+I would have liked Francis to cut down on all the rest, drastically, and expand on the two “Hello, world!” examples.
+
+First, the book doesn’t mention that this is a *C++11* “Hello, world!”:
+
+[*C++11*](code/ch1/hello.book.cpp):
+
+```cpp
+#include <iostream>
+
+auto main() -> int
+{
+    std::cout << "Hello, world!\n";
+}
+```
+
+Why does that matter? Well, with C++11 the only change from C++03 was the trailing return type syntax. But with C++23 one will reasonably use `std::print` instead of iostreams, both in order to get general Unicode text presented correctly, for the better support for internationalization that format strings give, and as a single unified way to do formatting that is super fast, efficiency!, efficiency!, for number-to-text conversion. 
+
+[*C++23*](code/ch1/hello.c++23.cpp):
+
+```cpp
+#include <print>
+
+auto main() -> int
+{
+    std::print( "Hello, world!\n" );        // Supports Unicode output also in Windows.
+}
+```
+
+When the book was written compiler support for `std::print` was probably rare. For this review I had to upgrade Visual C++ to compile that code. My usual MinGW g++ compiler (version 11.2.0 from the Nuwen distro) did not support it, but the MSYS2 distro’s MinGW g++ version 14.1.0 did, and even linked successfully when given option `-lstdc++exp`.
+
+The replacement of iostreams output with functionality adopted from [the {fmt} library](https://github.com/fmtlib/fmt) is a fundamental change, that I think should have been mentioned for “Hello, world!”.
+
+Nitpick 1: for deduced return type *notation* I prefer to specify that explicitly, like `auto foo() -> auto { …`, instead of implicitly like `auto foo() { …` as in the book’s example. I’m not entirely sure but I think the explicit deduced return type notation, my preferred notation, was introduced in C++14. It was not valid in C++11.
+
+Nitpick 2: for the deduced return type *discussion* I would have liked mention of and a link to Andrei Alexandrescu’s classic C++03 article [“Min and Max Redivivus”](https://web.archive.org/web/20030114105307/http://www.cuj.com/experts/1904/alexandr.htm).
 
 ## Bjeff!
 

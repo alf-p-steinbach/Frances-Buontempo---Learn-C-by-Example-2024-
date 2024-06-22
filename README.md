@@ -3,7 +3,7 @@ A June 2024 review & critique of
 
 <img src="images/cover.png" width="50%" align="right">
 
-When someone attempted to post a pirate copy of this book to a Facebook group that I moderate, I notified Francis and apologized for viewing (actually downloading!) the PDF, and starting to read it. She suggested that I publish a review of the book. So, hereby.
+When someone attempted to post a pirate copy of this book to a Facebook group that I moderate, I notified Frances and apologized for viewing (actually downloading!) the PDF, and starting to read it. She suggested that I publish a review of the book. So, hereby.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -18,7 +18,7 @@ When someone attempted to post a pirate copy of this book to a Facebook group th
 
 ## My perspective.
 
-Francis writes in “Who should read this book” that
+Frances writes in “Who should read this book” that
 
 > ❞ If you have used C++ before but have failed to keep up with recent
 changes, this book is for you.
@@ -46,7 +46,7 @@ I have worked as a vocational school teacher and as a college lecturer, and over
 
 ## The book’s goal.
 
-In “Why read this book?” Francis writes
+In “Why read this book?” Frances writes
 
 > ❞ The [[ISOCpp](https://isocpp.org)] site even has a section for people
 with a background in other languages who want to learn C++. It
@@ -57,7 +57,7 @@ enough to get your confidence back.
 
 It seems the aim is to provide a clear solid learning path through the main features of C++11 through C++23, enabling the reader to explore further.
 
-The aim is clearly *not* to cover or even mention all of the myriad new features. Rather, the path will visit some main features that were needed or convenient in some concrete examples, which is an approach to relevance that I agree with. And in “Who this book is for” Francis writes:
+The aim is clearly *not* to cover or even mention all of the myriad new features. Rather, the path will visit some main features that were needed or convenient in some concrete examples, which is an approach to relevance that I agree with. And in “Who this book is for” Frances writes:
 
 > ❞ If you used to know all the gnarly edge cases
 and quote chapter and verse of a previous standard, this book will
@@ -79,7 +79,7 @@ the language and lost track of recent changes”, and the rest reiterates how th
 * an overview of what one can expect to learn from the book; and
 * a section “Some pro tips” that introduces three currently very useful web sites, namely [C++ Insights](https://cppinsights.io/), [Compiler Explorer](https://godbolt.org/) and [cppreference.com](https://en.cppreference.com/w/cpp/compiler_support), plus reiterates the advice **Don’t Panic!** which I think is very good advice, except perhaps after some dolphin says “So long and thanks for all the fish!”.
 
-I would have liked Francis to cut down on all the rest, drastically, and expand on the two “Hello, world!” examples.
+I would have liked Frances to cut down on all the rest, drastically, and expand on the two “Hello, world!” examples.
 
 First, the book doesn’t mention that this is a *C++11* “Hello, world!”:
 

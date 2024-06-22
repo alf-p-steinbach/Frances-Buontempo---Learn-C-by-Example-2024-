@@ -115,7 +115,7 @@ The replacement of iostreams output with functionality adopted from [the {fmt} l
 
 And also, how one can use the {fmt} library also with C++17, instead of the currently bleeding edge C++23 `std::print`. Perhaps also mention that the {fmt} library, but not the adoption in the C++ standard library, supports colored output via ANSI escapes. I believe that that is of interest to students: they often ask how to do colors.
 
-And in the area of mentioning problems and not shoving them under the nearest carpet: mentioning that C++ as of C++23 still lacks portable Unicode *console input* functionality, which it should have so that a student also in portable C++ can write a little program that asks for his or her name, and that uses it in a personalized greeting, also in Windows &mdash; the natural “Hello, world!” 2 program.
+And in the area of mentioning problems and not shoving them under the nearest carpet: mentioning that C++ as of C++23 still lacks portable Unicode *console input* functionality, which it should have so that a student also in portable C++ can write a little program that asks for his or her name, and that displays it correctly in a personalized greeting &mdash; the natural “Hello, world!” 2 program.
 
 Nitpick 1: for deduced return type *notation* I prefer to specify that explicitly, like `auto foo() -> auto { …`, instead of implicitly like `auto foo() { …` as in the book’s example. I’m not entirely sure but I think the explicit deduced return type notation, my preferred notation, was introduced in C++14. It was not valid in C++11.
 

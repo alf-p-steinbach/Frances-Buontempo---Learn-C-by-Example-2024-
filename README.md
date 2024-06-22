@@ -171,23 +171,7 @@ $$ \begin{matrix}
     a^3 & + & 2a^2b & + & ab^2 & {} & {} \\
     {} & {} & a^2b & + & 2ab^2 & + & b^3 \\
     \hline \\
-    \\
     a^3 & + & 3a^2b & + & 3ab^2 & + & b^3 \\
 \end{matrix} $$
 
-asdasd
-
-$$
-\begin{equation}
-\begin{matrix}
-a^3 & + & 2a^2b & + & ab^2 & {} & {} \\
-{} & {} & a^2b & + & 2ab^2 & + & b^3 \\
-
-\hline
-\\
-a^3 & + & 3a^2b & + & 3ab^2 & + & b^3 \\
-\end{matrix}
-\end{equation}
-$$
-
-The first row here is the coefficients 1, 2, 1; and the second row is also the coefficients 1, 2, 1, just shifted to right one step. And they’re then added together in each column. This shifting of a row and columnwise adding with the original, is exactly the common procedure for Pascal’s triangle.
+The first row here has the coefficients 1, 2, 1; and the second row also has the coefficients 1, 2, 1, just shifted one step to the right. And they’re then added together in each column. This shifting of a row and columnwise adding with the original, is exactly the common procedure for Pascal’s triangle.

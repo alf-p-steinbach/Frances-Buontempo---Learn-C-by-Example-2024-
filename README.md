@@ -168,9 +168,11 @@ $$
 &hellip; where the two parenthesized expressions in the result contain terms that match, and thus can be added together, when one of the expressions is shifted one step to the right or left:
 
 $$ \begin{matrix}
-    X \\
+    a^3 & + & 2a^2b & + & ab^2 & {} & {} \\
+    {} & {} & a^2b & + & 2ab^2 & + & b^3 \\
     \hline \\
-    Y
+    \\
+    a^3 & + & 3a^2b & + & 3ab^2 & + & b^3 \\
 \end{matrix} $$
 
 asdasd

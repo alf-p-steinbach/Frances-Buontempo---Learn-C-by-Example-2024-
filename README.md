@@ -324,6 +324,8 @@ Output:
 
 Since the image storage is quite minimal there’s not much point in optimizing this further. But in principle for the approach above one only needs *two* `Bits_row` of storage, with one of them representing the previous row in the iteration over rows. And even that can be dispensed with by calculating the value at any point (*x*, *y*) directly, in constant time!, as just [`!(x & ~y)`](https://www.wolframscience.com/nks/p608--traditional-mathematics-and-mathematical-formulas/); the trick by Stephen Wolfram that I referenced earlier.
 
+So, these are the kind of C++-ish efficient and tight coding examples, and background explanation + references, that I wish had been presented in addition to or perhaps instead of checking oddness in a vector-of-vectors storage of range-limited numbers &mdash; it’s an idea for a second edition of the book!
+
 ---
 
 jølkjaøsd

@@ -151,7 +151,7 @@ The “and/or”: one doesn’t always need to understand everything about the p
 
 ---
 
-An C++-ish efficiency oriented perspective on Pascal’s triangle starts with *understanding* what it is about, not just remembering the mechanics of one way to generate it.
+An C++-ish efficiency oriented perspective on Pascal’s triangle (or whatever!) starts with *understanding* what it is about, not just remembering the mechanics of one way to generate it.
 
 Probably Pascal was investigating the coefficients of the terms that you get when you multiply out $(a + b)^n$. For example, $(a + b)^2 = a^2 + 2ab + b^2$, with coefficients **1**, **2** and **1**, which are the third line in Pascal’s triangle. And what do you get when you multiply that by $(a + b)$ again, thus forming $(a + b)^3$?
 
@@ -163,7 +163,7 @@ $$ \begin{align*}
     &= (a^3 + 2a^2b + ab^2) + (a^2b + 2ab^2 + b^3)
 \end{align*} $$
 
-&hellip; where the two parenthesized expressions in the result contain terms that match, and thus can be added together, when one of the expressions is shifted one step to the right or left:
+&hellip; where the two parenthesized expressions in the result contain some terms that match, and thus can be added together, when one of the expressions is shifted one step to the right or left:
 
 $$ \begin{matrix}
     a^3 & + & 2a^2b & + & ab^2 & {} & {} \\
@@ -172,25 +172,25 @@ $$ \begin{matrix}
     a^3 & + & 3a^2b & + & 3ab^2 & + & b^3 \\
 \end{matrix} $$
 
-The first row here has the coefficients 1, 2, 1; and the second row also has the coefficients 1, 2, 1, just shifted one step to the right. And they’re then added together in each column. This shifting of a row and columnwise adding with the original, is exactly the common procedure for Pascal’s triangle.
+The first row here has the coefficients 1, 2, 1; and the second row also has the coefficients 1, 2, 1, just shifted one step to the right. And they’re then added together in each column. This shifting of a row and columnwise addition with the original, is exactly the common procedure for Pascal’s triangle.
 
 This chapter of the book exemplifies but does not explain that the coefficients of this Pascal row #4, namely 1, 3, 3 and 1, are also the number of possible ways to select respectively *r* = 0, 1, 2 or 3 *b*’s from a sequence of *n* = 3 *b*’s. Which is called the number of **combinations** of respectively 0, 1, 2 or 3 *b*’s from 3 *b*’s, typically labeled “**nCr**” on a calculator. One way to understand it is to view $a^3 + 3a^2b + 3ab^2 + b^3 = (a + b)^3$ as
 
 $$(a + b)\cdot(a + b)\cdot(a + b)$$
 
-When you multiply that out without collecting like terms and without reducing e.g. $a \cdot a \cdot a$ to just $a^3$ (etc.), then you get a number of terms like $(a \cdot a \cdot a)$, $(a \cdot a \cdot b)$, $(a \cdot b \cdot a)$ etc. “A number of”: each such basic term has 3 symbols where each symbol can be one of 2 possibilities, either *a* or *b*, which means that there are $2^3 = 8$ possible terms. Which means that the sum of the coefficients will be 8 for this row, and generally $2^{k-1}$ for row *k* (with *k* starting at 1 for the first row), which Frances uses as one validity check on the data.
+When you multiply that out without collecting like terms and without reducing e.g. $a \cdot a \cdot a$ to just $a^3$ (etc.), then you get a number of terms like $(a \cdot a \cdot a)$, $(a \cdot a \cdot b)$, $(a \cdot b \cdot a)$ etc. “A number of”: each such basic term has 3 symbols where each symbol can be one of 2 possibilities, either *a* or *b*, which means that there are $2^3 = 8$ possible terms. Which means that the sum of the coefficients will be 8 for this row, and generally $2^{k-1}$ for row *k* (with *k* starting at 1 for the first row), which Frances uses as one validity check on data that should be the coefficients.
 
 And e.g. the coefficient for $a^2b$, namely 3, is the number of basic terms that reduce to $a^2b$, i.e. the number of basic terms that have 2 *a*’s, which is the number of ways to choose 2 *a*’s in $(a + b)\cdot(a + b)\cdot(a + b)$ when the order you choose them in doesn’t matter.
 
-If the order did matter then there would be 3 possibilities for the first *a* and 2 possibilities for the second, i.e. $3 \cdot 2 = 6$ ways to choose them. More generally that’s $n \cdot (n-1) \cdot (n-2) \cdot \ldots \cdot (n-r+1)$ ways, with *r* terms in that product, $= n!/(n - r)!$. But since the order should not matter one must divide that again by the number of possible orders of the *r* chosen symbols, namely $r!$, which means that 
+If the order did matter then there would be 3 possibilities for the first *a* and 2 possibilities for the second, i.e. $3 \cdot 2 = 6$ ways to choose them. More generally that’s $n \cdot (n-1) \cdot (n-2) \cdot \ldots \cdot (n-r+1)$ ways, with *r* factors in that product, $= n!/(n - r)!$. But since the order should not matter one must divide that again by the number of possible orders of the *r* chosen symbols, namely $r!$, which means that 
 
 $$
 \text{nCr} = \frac{n!}{(n - r)!\cdot r!}
 $$
 
-In math the calculator notation nCr is written as ${n \choose r}$. A sum of two things like $(a + b)$ is known as a **binomial**, and thus ${n \choose r}$ is a **binomial coefficient**. So Pascal’s triangle is a table of binomial coefficients, the number of ways to choose things from sets of things.
+In math the calculator notation nCr is written as ${n \choose r}$. A sum of two things like $(a + b)$ is known as a [**binomial**](https://en.wikipedia.org/wiki/Binomial_(polynomial)), a polynomial with 2 terms, and thus ${n \choose r}$ is a **binomial coefficient**. So Pascal’s triangle is a table of binomial coefficients, the number of ways to choose things from sets of things.
 
-Anyway, this means &mdash; efficiency!, efficiency! &mdash; that each number in Pascal’s table can be calculated from the previous one in *constant time*, O(1), which is how I did this in high school roughly 1980:
+Anyway this means &mdash; efficiency!, efficiency! &mdash; that each number in Pascal’s table can be calculated from the previous one in *constant time*, O(1), which is how I did this in high school roughly 1980:
 
 
 

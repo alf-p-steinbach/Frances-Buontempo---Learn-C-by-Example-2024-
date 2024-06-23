@@ -195,7 +195,9 @@ Anyway this means &mdash; efficiency!, efficiency! &mdash; that each number in P
 $$ \begin{align*}
     {n \choose {r + 1}} \bigg / {n \choose r} &= 
         {\frac{n!}{(n - (r + 1))!\cdot (r + 1)!}} \bigg / {\frac{n!}{(n - r)!\cdot r!}} \\
+        \\
         &= \frac {(n - r)!\cdot r!} {(n - (r + 1))!\cdot (r + 1)!} \\
+        \\
         &= (n - r) / (r + 1)
 \end{align*} $$
 

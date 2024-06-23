@@ -209,10 +209,10 @@ $$ \begin{align*}
 #include <cassert>
 #include <ranges>
 #include <string>
-using   std::views::iota,       // <ranges>
+using   std::ranges::iota_view, // <ranges>
         std::stoi;              // <string>
 
-auto up_to( const int n ) -> auto { return iota( 0, n ); }
+auto up_to( const int n ) -> auto { return iota_view( 0, n ); }
 
 auto main( int n_cmd_parts, char* cmd_parts[] ) -> int
 {
@@ -238,7 +238,7 @@ Outputs e.g.
 1 4 6 4 1
 ```
 
-I wish the chapter had demonstrated this kind of efficiency, the C++ mindset, rather than or in addition to use of a vector of vectors to store the generated triangle. Perhaps with a more clear and easy to understand explanation than I managed in the short space here. Incidentally, this little program also demonstrates deduced return type, due to convenience use of the ranges sub-library’s `iota`, in the `up_to` function.
+I wish the chapter had demonstrated this kind of efficiency, the C++ mindset, rather than or in addition to use of a vector of vectors to store the generated triangle. Perhaps with a more clear and easy to understand explanation than I managed in the short space here. Incidentally, this little program also demonstrates deduced return type, due to convenience use of the ranges sub-library’s `iota_view`, in the `up_to` function.
 
 ----
 

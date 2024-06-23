@@ -3,10 +3,10 @@
 #include <cassert>
 #include <ranges>
 #include <string>
-using   std::views::iota,       // <ranges>
+using   std::ranges::iota_view, // <ranges>
         std::stoi;              // <string>
 
-auto up_to( const int n ) -> auto { return iota( 0, n ); }
+auto up_to( const int n ) -> auto { return iota_view( 0, n ); }
 
 auto main( int n_cmd_parts, char* cmd_parts[] ) -> int
 {

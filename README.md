@@ -201,3 +201,45 @@ $$ \begin{align*}
         &= (n - r) / (r + 1)
 \end{align*} $$
 
+[*pascal-triangle.incremental.cpp*](code/ch1/pascal-triangle.incremental.cpp):
+
+```cpp
+#include <fmt/core.h>
+
+#include <cassert>
+#include <ranges>
+#include <string>
+using   std::views::iota,       // <ranges>
+        std::stoi;              // <string>
+
+auto up_to( const int n ) -> auto { return iota( 0, n ); }
+
+auto main( int n_cmd_parts, char* cmd_parts[] ) -> int
+{
+    assert( n_cmd_parts == 2 or !"Usage: programname NUMBER" );
+    const int n_rows = stoi( cmd_parts[1] );
+    for( const int y: up_to( n_rows ) ) {
+        int value = 1;
+        for( const int x: up_to( y + 1 ) ) {
+            fmt::print( "{} ", value );
+            value = value*(y - x)/(x + 1);
+        }
+        fmt::print( "\n" );
+    }
+}
+```
+Outputs e.g.
+
+```text
+1
+1 1
+1 2 1
+1 3 3 1
+1 4 6 4 1
+```
+
+I wish the chapter had demonstrated this kind of efficiency, the C++ mindset, rather than or in addition to use of a vector of vectors to store the generated triangle. Perhaps with a more clear and easy to understand explanation than I managed in the short space here. Incidentally, this little program also demonstrates deduced return type, due to convenience use of the ranges sub-library’s `iota`, in the `up_to` function.
+
+----
+
+jølkjaøsd

@@ -242,4 +242,91 @@ I wish the chapter had demonstrated this kind of efficiency, the C++ mindset, ra
 
 ----
 
+The fractal triangles-within-triangles image presented in section §2.3.6 is a nice example of *exploration*.
+
+IMO it’s very good that a book encourages exploration.
+
+So, plus marks to the book for that.
+
+I believe that pointing out to students that they can find interesting patterns by coloring the numbers in Pascal’s triangle, e.g. based on the odd/even property, was popularized by Barbara Liskov at MIT, the lady famous for the Liskov’s substitution principle. But with limited effort I was unable to google up a reference. However, Frances does mention that the fractal is called a Sierpinsky triangle, so that the reader can find out more about the fractal, at least.
+
+On the third hand, in this section I would have liked mention of the fact that calculating the full numbers severely limits the size of the image because one gets integer overflow (which has already been discussed), but that calculating the full numbers is unnecessary because when only the odd/even property is considered only the values modulo 2, i.e. 0 and 1, need to be calculated:
+
+```cpp
+#include <fmt/core.h>
+
+#include <array>
+#include <bitset>
+#include <ranges>
+#include <span>
+#include <string>
+using   std::array,                     // <array>
+        std::bitset,                    // <bitset>
+        std::ranges::iota_view,         // <ranges>
+        std::span,                      // <span>
+        std::string;                    // <string>
+
+template< class Type > using in_ = const Type&;
+
+auto up_to( const int n ) -> auto { return iota_view( 0, n ); }
+auto one_through( const int n ) -> auto { return iota_view( 1, n + 1 ); }
+
+using C_str = const char*;
+
+const int n = 32;                   // The image is always a square with side `n` a power of 2.
+using Bits_row = bitset<n>;         // Least significant bit on the left in image.
+using Image = array<Bits_row, n>;   // Indexing as [y][x]. Too simple to define a class.
+
+void display( in_<Image> image )
+{
+    const auto& space_ch        = " ";
+    const auto& upper_block_ch  = "▀";
+    const auto& lower_block_ch  = "▄";
+    const auto& full_block_ch   = "█";
+    static const C_str block_ch[] = {space_ch, upper_block_ch, lower_block_ch, full_block_ch};
+
+    for( const int half_y: up_to( n/2 ) ) {
+        const int y = 2*half_y;
+        string line;
+        for( const int x: up_to( n ) ) {
+            line += block_ch[image[y][x] + 2*image[y + 1][x]];
+        }
+        fmt::print( "{}\n", line );
+    }
+}
+
+auto main() -> int
+{
+    // Generates the Pascal triangle modulo 2:
+    Image image = {1};
+    for( const int y: one_through( n - 1 ) ) {
+        image[y] = image[y - 1] ^ (image[y - 1] << 1);      // Addition modulo 2 = XOR.
+    }
+    display( image );
+}
+```
+
+Output:
+
+```text
+█▄
+█▄█▄
+█▄  █▄
+█▄█▄█▄█▄
+█▄      █▄
+█▄█▄    █▄█▄
+█▄  █▄  █▄  █▄
+█▄█▄█▄█▄█▄█▄█▄█▄
+█▄              █▄
+█▄█▄            █▄█▄
+█▄  █▄          █▄  █▄
+█▄█▄█▄█▄        █▄█▄█▄█▄
+█▄      █▄      █▄      █▄
+█▄█▄    █▄█▄    █▄█▄    █▄█▄
+█▄  █▄  █▄  █▄  █▄  █▄  █▄  █▄
+█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄
+```
+
+---
+
 jølkjaøsd

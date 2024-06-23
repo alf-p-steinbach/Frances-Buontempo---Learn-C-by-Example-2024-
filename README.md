@@ -192,5 +192,10 @@ In math the calculator notation nCr is written as ${n \choose r}$. A sum of two 
 
 Anyway this means &mdash; efficiency!, efficiency! &mdash; that each number in Pascal’s table can be calculated from the previous reading order one in *constant time*, O(1), which is how I did this in high school roughly 1980:
 
-
+$$ \begin{align*}
+    {n \choose {r + 1}} \bigg / {n \choose r} &= 
+        {\frac{n!}{(n - (r + 1))!\cdot (r + 1)!}} \bigg / {\frac{n!}{(n - r)!\cdot r!}} \\
+        &= \frac {(n - r)!\cdot r!} {(n - (r + 1))!\cdot (r + 1)!} \\
+        &= (n - r) / (r + 1)
+\end{align*} $$
 

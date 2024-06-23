@@ -248,7 +248,7 @@ IMO it’s very good that a book encourages exploration.
 
 So, plus marks to the book for that.
 
-I believe that pointing out to students that they can find interesting patterns by coloring the numbers in Pascal’s triangle, e.g. based on the odd/even property, was popularized by Barbara Liskov at MIT, the lady famous for Liskov’s substitution principle. But with limited effort I was unable to google up a reference. However, Frances does mention that the fractal is called a Sierpinsky triangle, so that the reader can find out more about the fractal, at least.
+I believe that pointing out to students that they can find interesting patterns by coloring the numbers in Pascal’s triangle, e.g. based on the odd/even property, was popularized by Barbara Liskov at MIT, the lady famous for Liskov’s substitution principle. But with limited effort I was unable to google up a reference. However, Frances does mention that the fractal is called a Sierpinski triangle, so that the reader can find out more about the fractal, at least.
 
 On the third hand, in this section I would have liked mention of the fact that calculating the full numbers severely limits the size of the image because one gets integer overflow (which has already been discussed), but that calculating the full numbers is unnecessary because when only the odd/even property is considered only the values modulo 2, i.e. 0 and 1, need to be calculated:
 

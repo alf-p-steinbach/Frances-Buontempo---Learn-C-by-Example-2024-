@@ -188,7 +188,7 @@ $$
 \text{nCr} = \frac{n!}{(n - r)!\cdot r!}
 $$
 
-In math the calculator notation nCr is written as ${n \choose r}$. A sum of two things like $(a + b)$ is known as a **binomial**, and thus ${n \choose r}$ is a **binomial coefficient**. So Pascal’s table is a table of binomial coefficients, the number of ways to choose things from sets of things.
+In math the calculator notation nCr is written as ${n \choose r}$. A sum of two things like $(a + b)$ is known as a **binomial**, and thus ${n \choose r}$ is a **binomial coefficient**. So Pascal’s triangle is a table of binomial coefficients, the number of ways to choose things from sets of things.
 
 Anyway, this means &mdash; efficiency!, efficiency! &mdash; that each number in Pascal’s table can be calculated from the previous one in *constant time*, O(1), which is how I did this in high school roughly 1980:
 

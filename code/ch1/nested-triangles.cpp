@@ -24,12 +24,7 @@ using Image = array<Bits_row, n>;   // Indexing as [y][x]. Too simple to define 
 
 void display( in_<Image> image )
 {
-    const auto& space_ch        = " ";
-    const auto& upper_block_ch  = "▀";
-    const auto& lower_block_ch  = "▄";
-    const auto& full_block_ch   = "█";
-    static const C_str block_ch[] = {space_ch, upper_block_ch, lower_block_ch, full_block_ch};
-
+    constexpr C_str block_ch[] = {" ", "▀", "▄", "█"};
     for( const int half_y: up_to( n/2 ) ) {
         const int y = 2*half_y;
         string line;

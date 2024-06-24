@@ -334,11 +334,6 @@ Now for a slightly embarassing terminological issue, namely a misleading conflat
 
 To wit, in section §2.2.3 “Move semantics and perfect forwarding” Frances presents the `std::vector` example
 
->     void push_back( T&& value ) {
->         emplace_back(std::move(value));
->     }
-
-
 > ```cpp
 > void push_back( T&& value ) {
 >     emplace_back(std::move(value));

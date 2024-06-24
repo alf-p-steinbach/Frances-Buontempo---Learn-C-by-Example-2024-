@@ -346,6 +346,11 @@ To wit, in section §2.2.3 “Move semantics and perfect forwarding” Frances p
 casts a value to an rvalue. This allows an overload taking an rvalue to
 be called, referred to as *perfect forwarding*.
 
+The example is forwarding a parameter, but so is e.g. `void foo(int x){ bar(x); }`. The example is also preserving the lvalue/rvalue *value category* of the client code’s argument, but only because  nothing else can bind to the rvalue reference `T&&` so that the argument is known to be an rvalue expression. Which raises a subtle point: if `T` had been a template parameter of the function then `T&&` would have been a **forwarding reference** a.k.a. *universal reference* with `T` ***deduced from a call’s argument***, but since `T` is a template parameter of the class it’s essentially just any type from the outer context, and not deduced.
+
+**Perfect forwarding** is about forwarding a forwarding reference parameter so that the lvalue/rvalue value category of the client code’s argument is preserved. For this one uses `std::forward`, which internally relies on some rather tricky rules for “reference collapse”, but which Just Works&trade;, much like the automatic transmission in a car: complex on the inside, but easy to use. Well except for one special case, that the allegedly perfect perfect forwarding is unable to handle the literal `0` automatically, because depending on the finally invoked function’s parameter it can be intended as a number or as a pointer.
+
+
 
 
 perfect forwarding

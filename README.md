@@ -198,7 +198,7 @@ $$
 
 In math the calculator notation nCr is written as ${n \choose r}$. A sum of two things like $(a + b)$ is known as a [**binomial**](https://en.wikipedia.org/wiki/Binomial_(polynomial)), a polynomial with 2 terms, and thus ${n \choose r}$ is a **binomial coefficient**. So Pascal’s triangle is a table of binomial coefficients, the number of ways to choose things from sets of things.
 
-Anyway this means &mdash; efficiency!, efficiency! &mdash; that each number in Pascal’s table can be calculated from the previous reading order one in *constant time*, O(1., which is how I did this in high school roughly 1980:
+Anyway this means &mdash; efficiency!, efficiency! &mdash; that each number in Pascal’s table can be calculated from the previous reading order one in *constant time*, O(1), which is how I did this in high school roughly 1980:
 
 $$ \begin{align*}
     {n \choose {r + 1}} \bigg / {n \choose r} &= 

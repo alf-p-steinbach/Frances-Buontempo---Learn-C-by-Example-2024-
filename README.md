@@ -1,5 +1,5 @@
 A June 2024 review & critique of
-# <span>Frances Buontempo &ndash; “Learn C++ by Example” (2024)</span>
+# <span>Frances Buontempo &ndash; “Learn C++ by Example” (2024.</span>
 
 <img src="images/cover.png" width="50%" align="right">
 
@@ -9,14 +9,19 @@ When someone attempted to post a pirate copy of this book to a Facebook group th
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [My perspective.](#my-perspective)
-- [The book’s goal.](#the-books-goal)
-- [Chapter 1 &mdash; “Hello again, C++!”.](#chapter-1-mdash-hello-again-c)
-- [Chapter 2 &mdash; “Containers, iterators, and ranges”.](#chapter-2-mdash-containers-iterators-and-ranges)
+- [1. My perspective.](#1-my-perspective)
+- [2. The book’s goal.](#2-the-books-goal)
+- [3. Chapter 1 &mdash; “Hello again, C++!”.](#3-chapter-1-mdash-hello-again-c)
+- [4. Chapter 2 &mdash; “Containers, iterators, and ranges”.](#4-chapter-2-mdash-containers-iterators-and-ranges)
+  - [4.1. Improvement potential.](#41-improvement-potential)
+  - [4.2. I wish efficiency was discussed.](#42-i-wish-efficiency-was-discussed)
+  - [4.3. Exploration is encouraged. ➕](#43-exploration-is-encouraged-)
+  - [4.4. Exploration limits are not addressed.](#44-exploration-limits-are-not-addressed)
+  - [4.5 A terminological issue: conflation of *moving* with *perfect forwarding*.](#45-a-terminological-issue-conflation-of-moving-with-perfect-forwarding)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## My perspective.
+## 1. My perspective.
 
 Frances writes in “Who should read this book” that
 
@@ -44,7 +49,7 @@ I’m well versed in C++98, C++03, C++11, C++14 and C++17, and so able to evalua
 
 I have worked as a vocational school teacher and as a college lecturer, and over the years I’ve used much of my time on discussing C++ and helping students, but I would not claim to be able to evaluate teaching, the pedagogical aspect. As I see it what suits one person may not necessarily suit another. What I find clear may be ungrokable to some student and vice versa; all I can say is that this book is *not unclear*.
 
-## The book’s goal.
+## 2. The book’s goal.
 
 In “Why read this book?” Frances writes
 
@@ -64,7 +69,7 @@ and quote chapter and verse of a previous standard, this book will
 help you focus on a handful of new features to get you back in the
 driving seat.
 
-## Chapter 1 &mdash; “Hello again, C++!”.
+## 3. Chapter 1 &mdash; “Hello again, C++!”.
 
 Chapter 1, called “Hello again, C++!”, is a bit of this and that:
 
@@ -122,11 +127,11 @@ Nitpick 1: for the deduced return type *discussion* I would have liked mention o
 Nitpick 2: for deduced return type *notation* I prefer to specify that explicitly, like `auto foo() -> auto { …`, instead of implicitly like `auto foo() { …` as in the book’s example. I’m not entirely sure but I think the explicit deduced return type notation, my preferred notation, was introduced in C++14. It was not valid in C++11.
 
 Nitpick 3: `main` is described as “the usual entry point for executable
-code”. The “entry point” term for `main` has unfortunately now been adopted even by cppreference, so this description uses now established terminology and is OK that way. But there’s no need to use that term and using it is very misleading, in two ways: (1) user code can be executed before and after `main`, so `main` is decidely not where execution enters the user code of the program, not to mention the notion of `main` as entry point for executable code, and (2) the term *entry point* used to refer unambigously to the machine code level entry point, the entry point that one specifies to a linker, but now when *entry point* is used also for `main` one may need to clarify (especially to learners) whether one is talking about the *machine code entry point* or the *user code “entry point”*, which should be unnecessary to do.
+code”. The “entry point” term for `main` has unfortunately now been adopted even by cppreference, so this description uses now established terminology and is OK that way. But there’s no need to use that term and using it is very misleading, in two ways: (1. user code can be executed before and after `main`, so `main` is decidely not where execution enters the user code of the program, not to mention the notion of `main` as entry point for executable code, and (2. the term *entry point* used to refer unambigously to the machine code level entry point, the entry point that one specifies to a linker, but now when *entry point* is used also for `main` one may need to clarify (especially to learners) whether one is talking about the *machine code entry point* or the *user code “entry point”*, which should be unnecessary to do.
 
 General impression: the chapter does a good job of pointing out that modern C++ is different from C++03, but is too long-winded about other intro stuff, and as I see it the text really should have mentioned replacing iostreams output with C++23’s `std::print` or the {fmt} library &mdash; a big and fundamental change. 
 
-## Chapter 2 &mdash; “Containers, iterators, and ranges”.
+## 4. Chapter 2 &mdash; “Containers, iterators, and ranges”.
 
 <img src="images/wikipedia-pascal-triangle.svg" align="right">
 
@@ -134,9 +139,9 @@ Chapter 2, titled “Containers, iterators, and ranges”, primarily introduces 
 
 This is done very naturally by iterative development of code to display [Pascal’s triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle), a triangle of numbers where each is the sum of the two numbers above.
 
-Along the way the ranges sub-library and C++20’s `std::format` appear, with mention that the latter is a partial adoption from the 3<sup>rd</sup> party [{fmt} library](https://github.com/fmtlib/fmt), but alas no mention of the separate original 3<sup>rd</sup> party [Ranges v3 library](https://github.com/ericniebler/range-v3) or its precursor the [Boost Range sub-library](https://www.boost.org/doc/libs/1_85_0/libs/range/doc/html/index.html).
+Along the way the ranges sub-library and C++20’s `std::format` appear, with mention that the latter is a partial adoption from the 3<sup>rd</sup> party [{fmt} library](https://github.com/fmtlib/fmt), but alas no mention of the separate original 3<sup>rd</sup> party [Ranges v3 library](https://github.com/ericniebler/range-v3. or its precursor the [Boost Range sub-library](https://www.boost.org/doc/libs/1_85_0/libs/range/doc/html/index.html).
 
----
+### 4.1. Improvement potential.
 
 Three main improvement potentials I see with this chapter:
 
@@ -145,24 +150,25 @@ Three main improvement potentials I see with this chapter:
 * Guaranteeing rather than just checking correctness.  
   When one deals directly with a `vector` of `vector`s one has no guarantee what they contain. Then checking (as the chapter exemplifies) can be a good idea. But I wish this chapter had also or alternatively exemplified and emphasized that providing the data via a class, an abstraction, can *guarantee* correctness.
 * Crossing all the t’s, dotting all the i’s, and filling in all the spaces.  
-  I would have liked an *explanation* of the connection between Pascal’s triangle and combinations (see below, if you like math then it’s easy when you have seen it); I would have liked a reference to I believe it was MIT’s Barbara Liskov for the triangles pattern; and, efficiency!, efficiency!, I would have liked mention of how that pattern needs no more than 0 and 1 for each number, so that it can be arbitrarily large (as opposed to max 35 rows), and not just that but also an example and reference to Stephen Wolfram’s “A New Kind of Science” for [how to do that pattern *efficiently*](https://www.wolframscience.com/nks/p608--traditional-mathematics-and-mathematical-formulas/) and *amazingly* with O(log *n*) or for small *n* O(1) storage instead of O(*n*²), by using the C++ bit level operators.
+  I would have liked an *explanation* of the connection between Pascal’s triangle and combinations (see below, if you like math then it’s easy when you have seen it); I would have liked a reference to I believe it was MIT’s Barbara Liskov for the triangles pattern; and, efficiency!, efficiency!, I would have liked mention of how that pattern needs no more than 0 and 1 for each number, so that it can be arbitrarily large (as opposed to max 35 rows), and not just that but also an example and reference to Stephen Wolfram’s “A New Kind of Science” for [how to do that pattern *efficiently*](https://www.wolframscience.com/nks/p608--traditional-mathematics-and-mathematical-formulas/) and *amazingly* with O(log *n*) or for small *n* O(1. storage instead of O(*n*²), by using the C++ bit level operators.
 
 There is a strong connection between the three points above, for both efficiency and correctness depend crucially on *understanding* and/or *knowing* a good deal about the problem that the code is intended to solve, and understanding and acquiring knowledge of the problem is much easier when one is given an explanation and/or references.
 
-The “and/or”: one doesn’t always need to understand everything about the problem; knowledge can suffice. For example, the sum of 1² through *n*² can be calculated as just *n*(*n* + 1)(2*n* + 1)/6. It’s OK to just use the formula in one’s code without understanding the details of how to derive it or prove it, and understanding the formula will probably not help, but a reference, e.g. a mention of and perhaps also link to “[pyramidal numbers](https://en.wikipedia.org/wiki/Square_pyramidal_number)”, can help.
+The “and/or”: one doesn’t always need to understand everything about the problem; knowledge can suffice. For example, the sum of 1² through *n*² can be calculated as just *n*(*n* + 1.(2*n* + 1./6. It’s OK to just use the formula in one’s code without understanding the details of how to derive it or prove it, and understanding the formula will probably not help, but a reference, e.g. a mention of and perhaps also link to “[pyramidal numbers](https://en.wikipedia.org/wiki/Square_pyramidal_number)”, can help.
 
----
 
-A C++-ish efficiency oriented perspective on Pascal’s triangle (or whatever!) starts with *understanding* what it is about, not just remembering the mechanics of one way to generate it.
+### 4.2. I wish efficiency was discussed.
 
-Probably Pascal was investigating the coefficients of the terms that you get when you multiply out $(a + b)^n$. For example, $(a + b)^2 = a^2 + 2ab + b^2$, with coefficients **1**, **2** and **1**, which are the third line in Pascal’s triangle. And what do you get when you multiply that by $(a + b)$ again, thus forming $(a + b)^3$?
+A C++-ish efficiency oriented perspective usually starts with *understanding* what the task is about, i.e. analysis, and not just, in the case of Pascal’s triangle, just remembering the mechanics of one way to generate it.
+
+Probably Pascal was investigating the coefficients of the terms that you get when you multiply out $(a + b)^n$, but whether he did or not, that’s a good starting point. For example, $(a + b)^2 = a^2 + 2ab + b^2$, with coefficients **1**, **2** and **1**, which are the third line in Pascal’s triangle. So what do you get when you multiply that by $(a + b)$ again, thus forming $(a + b)^3$?
 
 Well, *a* and *b* are on an equal footing so the result will necessarily be symmetrical, as 1, 2 and 1 is:
 
 $$ \begin{align*}
-    (a + b)\cdot(a^2 + 2ab + b^2) &= a\cdot(a^2 + 2ab + b^2) + b\cdot(a^2 + 2ab + b^2)\\
+    (a + b)\cdot(a^2 + 2ab + b^2. &= a\cdot(a^2 + 2ab + b^2. + b\cdot(a^2 + 2ab + b^2.\\
     \\
-    &= (a^3 + 2a^2b + ab^2) + (a^2b + 2ab^2 + b^3)
+    &= (a^3 + 2a^2b + ab^2. + (a^2b + 2ab^2 + b^3.
 \end{align*} $$
 
 &hellip; where the two parenthesized expressions in the result contain some terms that match, and thus can be added together, when one of the expressions is shifted one step to the right or left:
@@ -184,7 +190,7 @@ When you multiply that out without collecting like terms and without reducing e.
 
 And e.g. the coefficient for $a^2b$, namely 3, is the number of basic terms that reduce to $a^2b$, i.e. the number of basic terms that have 2 *a*’s, which is the number of ways to choose 2 *a*’s in $(a + b)\cdot(a + b)\cdot(a + b)$ when the order you choose them in doesn’t matter.
 
-If the order did matter then there would be 3 possibilities for the first *a* and for each of them 2 possibilities for the second, i.e. $3 \cdot 2 = 6$ ways to choose them. More generally that’s $n \cdot (n-1) \cdot (n-2) \cdot \ldots \cdot (n-r+1)$ ways, with *r* factors in that product, $= n!/(n - r)!$. But since the order should not matter one must divide that again by the number of possible orders of the *r* chosen symbols, namely $r!$, which means that 
+If the order did matter then there would be 3 possibilities for the first *a* and for each of them 2 possibilities for the second, i.e. $3 \cdot 2 = 6$ ways to choose them. More generally that’s $n \cdot (n-1. \cdot (n-2. \cdot \ldots \cdot (n-r+1.$ ways, with *r* factors in that product, $= n!/(n - r)!$. But since the order should not matter one must divide that again by the number of possible orders of the *r* chosen symbols, namely $r!$, which means that 
 
 $$
 \text{nCr} = \frac{n!}{(n - r)!\cdot r!}
@@ -192,15 +198,15 @@ $$
 
 In math the calculator notation nCr is written as ${n \choose r}$. A sum of two things like $(a + b)$ is known as a [**binomial**](https://en.wikipedia.org/wiki/Binomial_(polynomial)), a polynomial with 2 terms, and thus ${n \choose r}$ is a **binomial coefficient**. So Pascal’s triangle is a table of binomial coefficients, the number of ways to choose things from sets of things.
 
-Anyway this means &mdash; efficiency!, efficiency! &mdash; that each number in Pascal’s table can be calculated from the previous reading order one in *constant time*, O(1), which is how I did this in high school roughly 1980:
+Anyway this means &mdash; efficiency!, efficiency! &mdash; that each number in Pascal’s table can be calculated from the previous reading order one in *constant time*, O(1., which is how I did this in high school roughly 1980:
 
 $$ \begin{align*}
     {n \choose {r + 1}} \bigg / {n \choose r} &= 
-        {\frac{n!}{(n - (r + 1))!\cdot (r + 1)!}} \bigg / {\frac{n!}{(n - r)!\cdot r!}} \\
+        {\frac{n!}{(n - (r + 1.)!\cdot (r + 1.!}} \bigg / {\frac{n!}{(n - r)!\cdot r!}} \\
         \\
-        &= \frac {(n - r)!\cdot r!} {(n - (r + 1))!\cdot (r + 1)!} \\
+        &= \frac {(n - r)!\cdot r!} {(n - (r + 1.)!\cdot (r + 1.!} \\
         \\
-        &= (n - r) / (r + 1)
+        &= (n - r) / (r + 1.
 \end{align*} $$
 
 [*pascal-triangle.incremental.cpp*](code/ch1/pascal-triangle.incremental.cpp):
@@ -224,7 +230,7 @@ auto main( int n_cmd_parts, char* cmd_parts[] ) -> int
         int value = 1;
         for( const int x: up_to( y + 1 ) ) {
             fmt::print( "{} ", value );
-            value = value*(y - x)/(x + 1);
+            value = value*(y - x)/(x + 1.;
         }
         fmt::print( "\n" );
     }
@@ -240,19 +246,25 @@ Outputs e.g.
 1 4 6 4 1
 ```
 
-I wish the chapter had demonstrated this kind of efficiency, the C++ mindset, rather than or in addition to use of a vector of vectors to store the generated triangle. Perhaps with a more clear and easy to understand explanation than I managed in the short space here. Incidentally, this little program also demonstrates deduced return type, due to convenience use of the ranges sub-library’s `iota_view`, in the `up_to` function.
+I wish the chapter had demonstrated this kind of efficiency, the C++ mindset, with some analysis, rather than or in addition to use of a vector of vectors to store the generated triangle. Perhaps with a more clear and easy to understand explanation than I managed in the short space here. Incidentally, this little program also demonstrates deduced return type, due to convenience use of the ranges sub-library’s `iota_view`, in the `up_to` function.
 
-----
+### 4.3. Exploration is encouraged. ➕
 
-The fractal triangles-within-triangles image presented in section §2.3.6 is a nice example of *exploration*.
+The fractal triangles-within-triangles image presented in section §2.3.6 “Highlighting odd numbers in a row” is a nice example of *exploration*.
 
 IMO it’s very good that a book encourages exploration.
 
 So, plus marks to the book for that.
 
-I believe that pointing out to students that they can find interesting patterns by coloring the numbers in Pascal’s triangle, e.g. based on the odd/even property, was popularized by Barbara Liskov at MIT, the lady famous for Liskov’s substitution principle. But with limited effort I was unable to google up a reference. However, Frances does mention that the fractal is called a Sierpinski triangle, so that the reader can find out more about the fractal, at least.
+I believe that pointing out to students that they can find interesting patterns by coloring the numbers in Pascal’s triangle, e.g. based on the odd/even property, was popularized by Barbara Liskov at MIT, the lady famous for Liskov’s substitution principle, but with limited effort I was unable to google up a reference.
 
-On the third hand, in this section I would have liked mention of the fact that calculating the full numbers severely limits the size of the image because one gets integer overflow (which has already been discussed), but that calculating the full numbers is unnecessary because when only the odd/even property is considered only the values modulo 2, i.e. 0 and 1, need to be calculated:
+However, Frances does mention that the fractal is called a Sierpinski triangle, so that the reader can find out more about the fractal, at least.
+
+### 4.4. Exploration limits are not addressed.
+
+In this exploration section I would have liked mention of the fact that calculating the full numbers severely limits the size of the image because one gets integer overflow (which has already been discussed), but that calculating the full numbers is unnecessary because when only the odd/even property is considered only the values modulo 2, i.e. 0 and 1, need to be calculated.
+
+Its bewildering that that limitation is not addressed because Frances does mention modulo arithmetic here, ❝We could also try out even numbers instead or a different modulus❞.
 
 ```cpp
 #include <fmt/core.h>
@@ -297,7 +309,7 @@ auto main() -> int
     // Generates the Pascal triangle modulo 2:
     Image image = {1};
     for( const int y: one_through( n - 1 ) ) {
-        image[y] = image[y - 1] ^ (image[y - 1] << 1);      // Addition modulo 2 = XOR.
+        image[y] = image[y - 1] ^ (image[y - 1] << 1.;      // Addition modulo 2 = XOR.
     }
     display( image );
 }
@@ -326,9 +338,9 @@ Output:
 
 Since the image storage is quite minimal there’s not much point in optimizing this further. But in principle for the above approach one only needs *two* `Bits_row` of storage, with one of them representing the previous row in the iteration over rows. And even that can be dispensed with by calculating the value at any point (*x*, *y*) directly, in constant time!, as just [`!(x & ~y)`](https://www.wolframscience.com/nks/p608--traditional-mathematics-and-mathematical-formulas/); the trick by Stephen Wolfram that I referenced earlier.
 
-So, these are the kind of C++-ish efficient and tight coding examples, and background explanation + references, that I wish had been presented in addition to or perhaps instead of checking oddness in a vector-of-vectors storage of range-limited numbers &mdash; it’s an idea for a second edition of the book!
+In passing, this is (again) the kind of C++-ish efficient and tight coding example, and background explanation + references, that I wish had been presented in addition to or perhaps instead of checking oddness in a vector-of-vectors storage of range-limited numbers &mdash; it’s an idea for a second edition of the book!
 
----
+### 4.5 A terminological issue: conflation of *moving* with *perfect forwarding*.
 
 Now for a slightly embarrassing terminological issue, namely a misleading conflation of C++ *moving*, which is done with `std::move`, with the special concept of C++ *perfect forwarding*, done with `std::forward`.
 
@@ -346,9 +358,9 @@ To wit, in section §2.2.3 “Move semantics and perfect forwarding” Frances p
 casts a value to an rvalue. This allows an overload taking an rvalue to
 be called, referred to as *perfect forwarding*.
 
-The example is forwarding a parameter, but so is e.g. `void foo(int x){ bar(x); }`. And by passing on an rvalue reference the example is also preserving the lvalue/rvalue *value category* of the client code’s argument, but only because  nothing else can bind to the rvalue reference `T&&` so that the client code’s argument is known to be an rvalue expression. In contrast, with perfect forwarding the client code’s argument can be an rvalue expression or an lvalue expression, different in different calls, and the “perfect” is about forwarding it accordingly: in practice as reference to `const`, reference to mutable, or rvalue reference.
+The example is forwarding a parameter, but so is e.g. `void foo(int x){ bar(x); }`. And by passing on an rvalue reference the example is also preserving the lvalue/rvalue *value category* of the client code’s argument, but only because  nothing else can bind to the rvalue reference `T&&` so that the client code’s argument is known to be an rvalue expression. In contrast, with perfect forwarding the client code’s argument can be an rvalue expression or an lvalue expression, different in different calls, and the “perfect” is about forwarding it accordingly: in practice as a reference to `const`, a reference to mutable, or an rvalue reference.
 
-Which raises a subtle point: if `T` had been a template parameter of the function then `T&&` would have been a [**forwarding reference**](https://en.cppreference.com/w/cpp/language/reference#Forwarding_references) a.k.a. [*universal reference*](https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers) with `T` ***deduced from a call’s argument***. This is what allows the client code’s argument to be an rvalue expression or an lvalue expression, not limited to one kind. But in the presented example code, since `T` is a template parameter of the class it’s essentially just any type from the outer context, and not deduced, so that `T&&` is a plain rvalue reference.
+Which raises a subtle point, not mentioned in the text: if `T` had been a template parameter of the function then `T&&` would have been a [**forwarding reference**](https://en.cppreference.com/w/cpp/language/reference#Forwarding_references) a.k.a. [*universal reference*](https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers) with `T` ***deduced from a call’s argument***. This is what allows the client code’s argument to be an rvalue expression or an lvalue expression, not limited to one kind. But in the presented example code, since `T` is a template parameter of the class it’s essentially just any type from the outer context, and not deduced, so that `T&&` is a plain rvalue reference.
 
 So, **perfect forwarding** is about forwarding a forwarding reference parameter so that the lvalue/rvalue value category of the client code’s argument is preserved. For this one uses `std::forward`, which internally relies on some rather tricky rules for “reference collapse”, but which Just Works&trade;, much like the automatic transmission in a car: complex on the inside, but easy to use. Well except for one special case, that the allegedly perfect perfect forwarding is unable to handle the literal `0` automagically, because depending on the finally invoked function’s parameter it can be intended as a number or as a pointer.
 

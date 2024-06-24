@@ -330,7 +330,7 @@ So, these are the kind of C++-ish efficient and tight coding examples, and backg
 
 ---
 
-Now for a slightly embarassing terminological issue, namely a misleading conflation of C++ *moving*, which is done with `std::move`, with the special concept of C++ *perfect forwarding*, done with `std::forward`.
+Now for a slightly embarrassing terminological issue, namely a misleading conflation of C++ *moving*, which is done with `std::move`, with the special concept of C++ *perfect forwarding*, done with `std::forward`.
 
 To wit, in section §2.2.3 “Move semantics and perfect forwarding” Frances presents the `std::vector` example
 

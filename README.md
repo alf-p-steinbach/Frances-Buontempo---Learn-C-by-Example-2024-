@@ -166,9 +166,9 @@ Probably Pascal was investigating the coefficients of the terms that you get whe
 Well, $a$ and $b$ are on an equal footing so the result will necessarily be symmetrical, as 1, 2 and 1 is:
 
 $$ \begin{align*}
-    (a + b)\cdot(a^2 + 2ab + b^2. &= a\cdot(a^2 + 2ab + b^2. + b\cdot(a^2 + 2ab + b^2.\\
+    (a + b)\cdot(a^2 + 2ab + b^2) &= a\cdot(a^2 + 2ab + b^2. + b\cdot(a^2 + 2ab + b^2)\\
     \\
-    &= (a^3 + 2a^2b + ab^2. + (a^2b + 2ab^2 + b^3.
+    &= (a^3 + 2a^2b + ab^2) + (a^2b + 2ab^2 + b^3)
 \end{align*} $$
 
 &hellip; where the two parenthesized expressions in the result contain some terms that match, and thus can be added together, when one of the expressions is shifted one step to the right or left:
@@ -180,7 +180,7 @@ $$ \begin{matrix}
     a^3 & + & 3a^2b & + & 3ab^2 & + & b^3 \\
 \end{matrix} $$
 
-The first row here has the coefficients 1, 2, 1; and the second row also has the coefficients 1, 2, 1, just shifted one step to the right. And they’re then added together in each column. This shifting of a row and columnwise addition with the original, is exactly the common procedure for Pascal’s triangle, so no suprise: the coefficients here, 1, 3, 3 and 1, are the fourth line of the triangle &mdash; and so on.
+The first row here has the coefficients 1, 2, 1; and the second row also has the coefficients 1, 2, 1, just shifted one step to the right. And they’re then added together in each column. This shifting of a row and columnwise addition with the original, is exactly the common procedure for Pascal’s triangle, so no surprise: the coefficients here, 1, 3, 3 and 1, are the fourth line of the triangle &mdash; and so on.
 
 This chapter of the book exemplifies but does not explain that the coefficients of this Pascal row #4, namely 1, 3, 3 and 1, are also the number of possible ways to select respectively *r* = 0, 1, 2 or 3 *b*’s from a sequence of *n* = 3 *b*’s. Which is called the number of **combinations** of respectively 0, 1, 2 or 3 *b*’s from 3 *b*’s, typically labeled “**nCr**” on a calculator. One way to understand it is to view $a^3 + 3a^2b + 3ab^2 + b^3 = (a + b)^3$ as
 

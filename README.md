@@ -159,7 +159,7 @@ The “and/or”: one doesn’t always need to understand everything about the p
 
 ### 4.2. I wish efficiency was discussed.
 
-A C++-ish efficiency oriented perspective usually starts with *understanding* what the task is about, i.e. analysis, and not just, in the case of Pascal’s triangle, just remembering the mechanics of one way to generate it.
+A C++-ish efficiency oriented perspective usually starts with *understanding* what the task is about, i.e. analysis, and not, in the case of Pascal’s triangle, just remembering the mechanics of one way to generate it.
 
 Probably Pascal was investigating the coefficients of the terms that you get when you multiply out $(a + b)^n$, but whether he did or not, that’s a good starting point. For example, $(a + b)^2 = a^2 + 2ab + b^2$, with coefficients **1**, **2** and **1**, which are the third line in Pascal’s triangle. So what do you get when you multiply that by $(a + b)$ again, thus forming $(a + b)^3$?
 
@@ -180,7 +180,7 @@ $$ \begin{matrix}
     a^3 & + & 3a^2b & + & 3ab^2 & + & b^3 \\
 \end{matrix} $$
 
-The first row here has the coefficients 1, 2, 1; and the second row also has the coefficients 1, 2, 1, just shifted one step to the right. And they’re then added together in each column. This shifting of a row and columnwise addition with the original, is exactly the common procedure for Pascal’s triangle.
+The first row here has the coefficients 1, 2, 1; and the second row also has the coefficients 1, 2, 1, just shifted one step to the right. And they’re then added together in each column. This shifting of a row and columnwise addition with the original, is exactly the common procedure for Pascal’s triangle, so no suprise: the coefficients here, 1, 3, 3 and 1, are the fourth line of the triangle &mdash; and so on.
 
 This chapter of the book exemplifies but does not explain that the coefficients of this Pascal row #4, namely 1, 3, 3 and 1, are also the number of possible ways to select respectively *r* = 0, 1, 2 or 3 *b*’s from a sequence of *n* = 3 *b*’s. Which is called the number of **combinations** of respectively 0, 1, 2 or 3 *b*’s from 3 *b*’s, typically labeled “**nCr**” on a calculator. One way to understand it is to view $a^3 + 3a^2b + 3ab^2 + b^3 = (a + b)^3$ as
 

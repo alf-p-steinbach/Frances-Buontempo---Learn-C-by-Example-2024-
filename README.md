@@ -190,7 +190,7 @@ When you multiply that out without collecting like terms and without reducing e.
 
 And e.g. the coefficient for $a^2b$, namely 3, is the number of basic terms that reduce to $a^2b$, i.e. the number of basic terms that have 2 $a$’s, which is the number of ways to choose 2 $a$’s in $(a + b)\cdot(a + b)\cdot(a + b)$ when the order you choose them in doesn’t matter.
 
-If the order did matter then there would be 3 possibilities for the first *a* and for each of them 2 possibilities for the second, i.e. $3 \cdot 2 = 6$ ways to choose them. More generally that’s $n \cdot (n-1. \cdot (n-2. \cdot \ldots \cdot (n-r+1.$ ways, with *r* factors in that product, $= n!/(n - r)!$. But since the order should not matter one must divide that again by the number of possible orders of the *r* chosen symbols, namely $r!$, which means that 
+If the order did matter then there would be 3 possibilities for the first *a* and for each of them 2 possibilities for the second, i.e. $3 \cdot 2 = 6$ ways to choose them. More generally that’s $n \cdot (n-1. \cdot (n-2. \cdot \ldots \cdot (n-r+1)$ ways, with *r* factors in that product, $= n!/(n - r)!$. But since the order should not matter one must divide that again by the number of possible orders of the *r* chosen symbols, namely $r!$, which means that 
 
 $$
 \text{nCr} = \frac{n!}{(n - r)!\cdot r!}
@@ -202,11 +202,11 @@ Anyway this means &mdash; efficiency!, efficiency! &mdash; that each number in P
 
 $$ \begin{align*}
     {n \choose {r + 1}} \bigg / {n \choose r} &= 
-        {\frac{n!}{(n - (r + 1.)!\cdot (r + 1.!}} \bigg / {\frac{n!}{(n - r)!\cdot r!}} \\
+        {\frac{n!}{(n - (r + 1)!\cdot (r + 1)!}} \bigg / {\frac{n!}{(n - r)!\cdot r!}} \\
         \\
-        &= \frac {(n - r)!\cdot r!} {(n - (r + 1.)!\cdot (r + 1.!} \\
+        &= \frac {(n - r)!\cdot r!} {(n - (r + 1))!\cdot (r + 1)!} \\
         \\
-        &= (n - r) / (r + 1.
+        &= (n - r) / (r + 1)
 \end{align*} $$
 
 [*pascal-triangle.incremental.cpp*](code/ch1/pascal-triangle.incremental.cpp):
@@ -230,7 +230,7 @@ auto main( int n_cmd_parts, char* cmd_parts[] ) -> int
         int value = 1;
         for( const int x: up_to( y + 1 ) ) {
             fmt::print( "{} ", value );
-            value = value*(y - x)/(x + 1.;
+            value = value*(y - x)/(x + 1);
         }
         fmt::print( "\n" );
     }

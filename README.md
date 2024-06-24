@@ -128,9 +128,9 @@ General impression: the chapter does a good job of pointing out that modern C++ 
 
 ## Chapter 2 &mdash; “Containers, iterators, and ranges”.
 
-Chapter 2, titled “Containers, iterators, and ranges”, primarily introduces item list notation (curly braces), move semantics and range based loops with `auto`.
-
 <img src="images/wikipedia-pascal-triangle.svg" align="right">
+
+Chapter 2, titled “Containers, iterators, and ranges”, primarily introduces item list notation (curly braces), move semantics and range based loops with `auto`.
 
 This is done very naturally by iterative development of code to display [Pascal’s triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle), a triangle of numbers where each is the sum of the two numbers above.
 

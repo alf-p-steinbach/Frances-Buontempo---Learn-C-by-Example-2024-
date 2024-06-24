@@ -330,6 +330,29 @@ So, these are the kind of C++-ish efficient and tight coding examples, and backg
 
 ---
 
+Now for a slightly embarassing terminological issue, namely a misleading conflation of C++ *moving*, which is done with `std::move`, with the special concept of C++ *perfect forwarding*, done with `std::forward`.
+
+To wit, in section §2.2.3 “Move semantics and perfect forwarding” Frances presents the `std::vector` example
+
+>     void push_back( T&& value ) {
+>         emplace_back(std::move(value));
+>     }
+
+
+> ```cpp
+> void push_back( T&& value ) {
+>     emplace_back(std::move(value));
+> }
+> ```
+
+&hellip; and writes, evidently with reference to the `value` parameter, that
+
+> ❞ C++’s `move` operation does not actually move anything. It
+casts a value to an rvalue. This allows an overload taking an rvalue to
+be called, referred to as *perfect forwarding*.
+
+
+
 perfect forwarding
 
 jølkjaøsd

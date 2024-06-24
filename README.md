@@ -340,7 +340,7 @@ To wit, in section §2.2.3 “Move semantics and perfect forwarding” Frances p
 > }
 > ```
 
-&hellip; and writes, evidently with reference to the `value` parameter, that
+&hellip; and writes, evidently with reference to the parameter named `value`, that
 
 > ❞ C++’s `move` operation does not actually move anything. It
 casts a value to an rvalue. This allows an overload taking an rvalue to

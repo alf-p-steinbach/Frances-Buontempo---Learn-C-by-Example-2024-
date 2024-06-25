@@ -309,7 +309,7 @@ auto main() -> int
     // Generates the Pascal triangle modulo 2:
     Image image = {1};
     for( const int y: one_through( n - 1 ) ) {
-        image[y] = image[y - 1] ^ (image[y - 1] << 1.;      // Addition modulo 2 = XOR.
+        image[y] = image[y - 1] ^ (image[y - 1] << 1);      // Addition modulo 2 = XOR.
     }
     display( image );
 }

@@ -47,7 +47,7 @@ So, I am a reader primarily interested in the new C++20 and C++23 core language 
 
 I’m well versed in C++98, C++03, C++11, C++14 and C++17, and so able to evaluate how well and how widely the book covers the new features in C++11 and later standards.
 
-I have worked as a vocational school teacher and as a college lecturer, and over the years I’ve used much of my time on discussing C++ and helping students, but I would not claim to be able to evaluate teaching, the pedagogical aspect. As I see it what suits one person may not necessarily suit another. What I find clear may be ungrokable to some student and vice versa; all I can say is that this book is *not unclear*.
+I have worked as a vocational school teacher and as a college lecturer, before consulting, and over the years I’ve used much of my time on discussing C++ and helping students, but I would not claim to be able to evaluate teaching, the pedagogical aspect. As I see it what suits one person may not necessarily suit another. What I find clear may be ungrokable to some student and vice versa; all I can say is that this book is *not unclear*.
 
 ## 2. The book’s goal.
 
@@ -70,6 +70,15 @@ help you focus on a handful of new features to get you back in the
 driving seat.
 
 ## 3. Chapter 1 &mdash; “Hello again, C++!”.
+
+^(1.1. Why does C++ matter?  
+1.2. When should you use C++?  
+1.3. Why read this book?  
+1.4. How does this book teach C++?  
+    Who this book is for  
+    Hello, again, C++!  
+    What you’ll learn from reading this book  
+1.5 Some pro tips)
 
 Chapter 1, called “Hello again, C++!”, is a bit of this and that:
 
@@ -369,3 +378,25 @@ So, **perfect forwarding** is about forwarding a forwarding reference parameter 
 In the words of [Anthony Williams](https://www.justsoftwaresolutions.co.uk/cplusplus/rvalue_references_and_perfect_forwarding.html) (author of “Concurrency in Action”),
 
 > ❞ This is called *perfect forwarding* because the same overload of [the finally invoked function] is selected as if the same argument was supplied to [it] directly. It is essential for library features such as `std::function` and `std::thread` which pass arguments to another (user supplied) function.
+
+### 4. Chapter 3 &mdash; 
+
+---
+
+In “Why read this book?” Frances writes
+
+> ❞ The [[ISOCpp](https://isocpp.org)] site even has a section for people
+with a background in other languages who want to learn C++. It
+doesn’t have a section for “Learning C++ if you already knew C++ a
+while ago.” This book plugs that gap. You don’t need a long list of
+every feature that’s been introduced over the years. You need just
+enough to get your confidence back.
+
+It seems the aim is to provide a clear solid learning path through the main features of C++11 through C++23, enabling the reader to explore further.
+
+The aim is clearly *not* to cover or even mention all of the myriad new features. Rather, the path will visit some main features that were needed or convenient in some concrete examples, which is an approach to relevance that I agree with. And in “Who this book is for” Frances writes:
+
+> ❞ If you used to know all the gnarly edge cases
+and quote chapter and verse of a previous standard, this book will
+help you focus on a handful of new features to get you back in the
+driving seat.

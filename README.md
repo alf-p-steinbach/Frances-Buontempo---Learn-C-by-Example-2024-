@@ -266,6 +266,8 @@ In this exploration section I would have liked mention of the fact that calculat
 
 Its bewildering that that limitation is not addressed because Frances does mention modulo arithmetic here, ❝We could also try out even numbers instead or a different modulus❞.
 
+Concrete example that “only the values modulo 2, i.e. 0 and 1, need to be calculated”:
+
 [*nested-triangles.cpp*](code/ch1/nested-triangles.cpp):
 
 ```cpp

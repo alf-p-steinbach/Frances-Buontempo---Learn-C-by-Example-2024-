@@ -266,6 +266,8 @@ In this exploration section I would have liked mention of the fact that calculat
 
 Its bewildering that that limitation is not addressed because Frances does mention modulo arithmetic here, ❝We could also try out even numbers instead or a different modulus❞.
 
+[*nested-triangles.cpp*](code/ch1/nested-triangles.cpp):
+
 ```cpp
 #include <fmt/core.h>
 
@@ -336,9 +338,9 @@ Output:
 █▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄
 ```
 
-Since the image storage is quite minimal there’s not much point in optimizing this further. But in principle for the above approach one only needs *two* `Bits_row` of storage, with one of them representing the previous row in the iteration over rows. And even that can be dispensed with by calculating the value at any point (*x*, *y*) directly, in constant time!, as just [`!(x & ~y)`](https://www.wolframscience.com/nks/p608--traditional-mathematics-and-mathematical-formulas/); the trick by Stephen Wolfram that I referenced earlier.
+Since the image storage is quite minimal there’s not much point in optimizing this further. But in principle for the above approach one only needs *two* `Bits_row` of storage, with one of them representing the previous row in the iteration over rows. And even that can be dispensed with by calculating the value at any point (*x*, *y*) directly, in constant time!, as just [`!(x & ~y)`](https://www.wolframscience.com/nks/p608--traditional-mathematics-and-mathematical-formulas/); the trick by Stephen Wolfram that I referenced earlier (code example [here](code/ch1/nested-triangles.via-direct-formula.cpp)).
 
-In passing, this is (again) the kind of C++-ish efficient and tight coding example, and background explanation + references, that I wish had been presented in addition to or perhaps instead of checking oddness in a vector-of-vectors storage of range-limited numbers &mdash; it’s an idea for a second edition of the book!
+In passing, this is again the kind of C++-ish efficient and tight coding example, and background explanation + references, that I wish had been presented in addition to or perhaps instead of checking oddness in a vector-of-vectors storage of range-limited numbers &mdash; it’s an idea for a second edition of the book!
 
 ### 4.5 A terminological issue: conflation of *moving* with *perfect forwarding*.
 

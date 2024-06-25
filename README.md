@@ -71,14 +71,14 @@ driving seat.
 
 ## 3. Book ch 1 &mdash; “Hello again, C++!”.
 
-$\color{orange} \footnotesize{ \hspace{24pt} \text{ 1.1. Why does C++ matter? } }$  
-$\color{orange} \footnotesize{ \hspace{24pt} \text{ 1.2. When should you use C++? } }$  
-$\color{orange} \footnotesize{ \hspace{24pt} \text{ 1.3. Why read this book? } }$  
-$\color{orange} \footnotesize{ \hspace{24pt} \text{ 1.4. How does this book teach C++? } }$  
-$\color{orange} \footnotesize{ \hspace{24pt} \hspace{24pt} \text{ Who this book is for } }$  
-$\color{orange} \footnotesize{ \hspace{24pt} \hspace{24pt} \text{     Hello, again, C++! } }$  
-$\color{orange} \footnotesize{ \hspace{24pt} \hspace{24pt} \text{     What you’ll learn from reading this book } }$  
-$\color{orange} \footnotesize{ \hspace{24pt} \text{ 1.5 Some pro tips } }$
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 1.1. Why does C++ matter? } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 1.2. When should you use C++? } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 1.3. Why read this book? } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 1.4. How does this book teach C++? } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Who this book is for } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{     Hello, again, C++! } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{     What you’ll learn from reading this book } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 1.5 Some pro tips } }$
 
 Chapter 1, called “Hello again, C++!”, is a bit of this and that:
 

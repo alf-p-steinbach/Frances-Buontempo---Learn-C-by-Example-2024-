@@ -69,17 +69,16 @@ and quote chapter and verse of a previous standard, this book will
 help you focus on a handful of new features to get you back in the
 driving seat.
 
-## 3. Chapter 1 &mdash; “Hello again, C++!”.
+## 3. Book ch 1 &mdash; “Hello again, C++!”.
 
-$\color{orange} \small{ \text{ 1.1. Why does C++ matter? } }$  
-$\color{orange} \small{ \text{ 1.2. When should you use C++? } }$  
-$\color{orange} \small{ \text{ 1.3. Why read this book? } }$  
-$\color{orange} \small{ \text{ 1.4. How does this book teach C++? } }$  
-$\color{orange} \small{ \hspace{24pt} \text{ Who this book is for } }$  
-$\color{orange} \small{ \hspace{24pt} \text{     Hello, again, C++! } }$  
-$\color{orange} \small{ \hspace{24pt} \text{     What you’ll learn from reading this book } }$  
-$\color{orange} \small{ \text{ 1.5 Some pro tips } }$
-
+$\color{orange} \footnotesize{ \hspace{24pt} \text{ 1.1. Why does C++ matter? } }$  
+$\color{orange} \footnotesize{ \hspace{24pt} \text{ 1.2. When should you use C++? } }$  
+$\color{orange} \footnotesize{ \hspace{24pt} \text{ 1.3. Why read this book? } }$  
+$\color{orange} \footnotesize{ \hspace{24pt} \text{ 1.4. How does this book teach C++? } }$  
+$\color{orange} \footnotesize{ \hspace{24pt} \hspace{24pt} \text{ Who this book is for } }$  
+$\color{orange} \footnotesize{ \hspace{24pt} \hspace{24pt} \text{     Hello, again, C++! } }$  
+$\color{orange} \footnotesize{ \hspace{24pt} \hspace{24pt} \text{     What you’ll learn from reading this book } }$  
+$\color{orange} \footnotesize{ \hspace{24pt} \text{ 1.5 Some pro tips } }$
 
 Chapter 1, called “Hello again, C++!”, is a bit of this and that:
 
@@ -141,7 +140,7 @@ code”. The “entry point” term for `main` has unfortunately now been adopte
 
 General impression: the chapter does a good job of pointing out that modern C++ is different from C++03, but is too long-winded about other intro stuff, and as I see it the text really should have mentioned replacing iostreams output with C++23’s `std::print` or the {fmt} library &mdash; a big and fundamental change. 
 
-## 4. Chapter 2 &mdash; “Containers, iterators, and ranges”.
+## 4. Book ch 2 &mdash; “Containers, iterators, and ranges”.
 
 <img src="images/wikipedia-pascal-triangle.svg" align="right">
 
@@ -380,7 +379,7 @@ In the words of [Anthony Williams](https://www.justsoftwaresolutions.co.uk/cplus
 
 > ❞ This is called *perfect forwarding* because the same overload of [the finally invoked function] is selected as if the same argument was supplied to [it] directly. It is essential for library features such as `std::function` and `std::thread` which pass arguments to another (user supplied) function.
 
-### 4. Chapter 3 &mdash; 
+### 4. Book ch  3 &mdash; Input of strings and numbers
 
 ---
 

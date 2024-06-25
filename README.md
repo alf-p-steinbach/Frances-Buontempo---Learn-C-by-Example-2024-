@@ -11,13 +11,14 @@ When someone attempted to post a pirate copy of this book to a Facebook group th
 
 - [1. My perspective.](#1-my-perspective)
 - [2. The book’s goal.](#2-the-books-goal)
-- [3. Chapter 1 &mdash; “Hello again, C++!”.](#3-chapter-1-mdash-hello-again-c)
-- [4. Chapter 2 &mdash; “Containers, iterators, and ranges”.](#4-chapter-2-mdash-containers-iterators-and-ranges)
+- [3. Book ch 1 &mdash; “Hello again, C++!”.](#3-book-ch-1-mdash-hello-again-c)
+- [4. Book ch 2 &mdash; “Containers, iterators, and ranges”.](#4-book-ch-2-mdash-containers-iterators-and-ranges)
   - [4.1. Improvement potential.](#41-improvement-potential)
   - [4.2. I wish efficiency was discussed.](#42-i-wish-efficiency-was-discussed)
   - [4.3. Exploration is encouraged. ➕](#43-exploration-is-encouraged-)
   - [4.4. Exploration limits are not addressed.](#44-exploration-limits-are-not-addressed)
   - [4.5 A terminological issue: conflation of *moving* with *perfect forwarding*.](#45-a-terminological-issue-conflation-of-moving-with-perfect-forwarding)
+  - [4. Book ch 3 &mdash; “Input of strings and numbers”](#4-book-ch-3-mdash-input-of-strings-and-numbers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -76,8 +77,8 @@ $\color{orange} \scriptsize{ \hspace{24pt} \text{ 1.2. When should you use C++? 
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 1.3. Why read this book? } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 1.4. How does this book teach C++? } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Who this book is for } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{     Hello, again, C++! } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{     What you’ll learn from reading this book } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Hello, again, C++! } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ What you’ll learn from reading this book } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 1.5 Some pro tips } }$
 
 Chapter 1, called “Hello again, C++!”, is a bit of this and that:
@@ -142,11 +143,25 @@ General impression: the chapter does a good job of pointing out that modern C++ 
 
 ## 4. Book ch 2 &mdash; “Containers, iterators, and ranges”.
 
-<img src="images/wikipedia-pascal-triangle.svg" align="right">
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 2.1 Creating and displaying a vector } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 2.2 Creating and displaying Pascal’s triangle } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ A reminder of Pascal’s triangle } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Coding Pascal’s triangle } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Move semantics and perfect forwarding } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Using ranges to display the vector } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Using format to display output } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 2.3 Properties of the triangle } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking the first and last elements of each row } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking the number of elements in each row } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking the sum of the elements in a row } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ How many rows can we generate correctly? } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking whether each row is symmetric } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Highlighting odd numbers in a row } }$  
 
+<img src="images/wikipedia-pascal-triangle.svg" align="right">
 Chapter 2, titled “Containers, iterators, and ranges”, primarily introduces item list notation (curly braces), move semantics and range based loops with `auto`.
 
-This is done very naturally by iterative development of code to display [Pascal’s triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle), a triangle of numbers where each is the sum of the two numbers above.
+This is done very naturally by iterative development of code to display [Pascal’s triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle), a triangle of numbers where each is the sum of the two numbers above, as shown in the figure to the right.
 
 Along the way the ranges sub-library and C++20’s `std::format` appear, with mention that the latter is a partial adoption from the 3<sup>rd</sup> party [{fmt} library](https://github.com/fmtlib/fmt), but alas no mention of the separate original 3<sup>rd</sup> party [Ranges v3 library](https://github.com/ericniebler/range-v3) or its precursor the [Boost Range sub-library](https://www.boost.org/doc/libs/1_85_0/libs/range/doc/html/index.html).
 
@@ -379,9 +394,11 @@ In the words of [Anthony Williams](https://www.justsoftwaresolutions.co.uk/cplus
 
 > ❞ This is called *perfect forwarding* because the same overload of [the finally invoked function] is selected as if the same argument was supplied to [it] directly. It is essential for library features such as `std::function` and `std::thread` which pass arguments to another (user supplied) function.
 
-### 4. Book ch  3 &mdash; Input of strings and numbers
+### 4. Book ch 3 &mdash; “Input of strings and numbers”
 
 ---
+
+xxx
 
 In “Why read this book?” Frances writes
 

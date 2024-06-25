@@ -3,12 +3,10 @@
 #include <array>
 #include <bitset>
 #include <ranges>
-#include <span>
 #include <string>
 using   std::array,                     // <array>
         std::bitset,                    // <bitset>
         std::ranges::iota_view,         // <ranges>
-        std::span,                      // <span>
         std::string;                    // <string>
 
 template< class Type > using in_ = const Type&;

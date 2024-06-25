@@ -71,21 +71,14 @@ driving seat.
 
 ## 3. Chapter 1 &mdash; “Hello again, C++!”.
 
-$$
-\color{orange}
-\begin{aligned}
-& \small{ 1.1. Why does C++ matter? } \\
-& \small{ 1.1. Why does C++ matter? } \\
-\end{aligned}
-$$
-
-1.2. When should you use C++?  
-1.3. Why read this book?  
-1.4. How does this book teach C++?  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Who this book is for  
-    Hello, again, C++!  
-    What you’ll learn from reading this book  
-1.5 Some pro tips
+$\color{orange} \small{ \text{ 1.1. Why does C++ matter? } }$  
+$\color{orange} \small{ \text{ 1.2. When should you use C++? } }$  
+$\color{orange} \small{ \text{ 1.3. Why read this book? } }$  
+$\color{orange} \small{ \text{ 1.4. How does this book teach C++? } }$  
+$\color{orange} \small{ \hspace{24pt} \text{ Who this book is for } }$  
+$\color{orange} \small{ \hspace{24pt} \text{     Hello, again, C++! } }$  
+$\color{orange} \small{ \hspace{24pt} \text{     What you’ll learn from reading this book } }$  
+$\color{orange} \small{ \text{ 1.5 Some pro tips } }$
 
 
 Chapter 1, called “Hello again, C++!”, is a bit of this and that:

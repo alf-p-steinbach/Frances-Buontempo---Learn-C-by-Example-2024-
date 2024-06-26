@@ -18,7 +18,7 @@ When someone attempted to post a pirate copy of this book to a Facebook group th
   - [4.3. Exploration is encouraged. ➕](#43-exploration-is-encouraged-)
   - [4.4. Exploration limits are not addressed.](#44-exploration-limits-are-not-addressed)
   - [4.5 A terminological issue: conflation of *moving* with *perfect forwarding*.](#45-a-terminological-issue-conflation-of-moving-with-perfect-forwarding)
-- [4. Book ch 3 &mdash; “Input of strings and numbers”](#4-book-ch-3-mdash-input-of-strings-and-numbers)
+- [5. Book ch 3 &mdash; “Input of strings and numbers”](#5-book-ch-3-mdash-input-of-strings-and-numbers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -505,6 +505,34 @@ One can of course interpret “perfect forwarding” literally as a descriptive 
 
 
 ## 5. Book ch 3 &mdash; “Input of strings and numbers”
+
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 3 Input of strings and numbers } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.1 Guessing a predetermined number } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting user input the hard way } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting optional numeric input } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Validation and feedback using \tt{std::function} and lambdas } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.2 Guessing a random number } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Setting up a random number generator } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Using the random number generator } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.3 Guessing a prime number } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking whether the number is prime } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking properties with \tt{static\_assert} } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Generating a random prime number } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Deciding which digits are correct } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Providing different clues using \tt{std::function} } }$  
+
+This chapter mixes two otherwise unrelated main subjects, namely input and random number generation, because they’re both needed for a guessing game. So in a way this chapter shows a weakness of the approach where subjects are introduced as they’re neeeded in some practical example. Frances let the example take charge.
+
+I would have negotiated with the example or perhaps just put it in its proper place, and split this chapter in two:
+
+* first one dealing with console input, and then
+* one dealing with basic random number generation.
+
+Since C++ lacks portable Unicode console input I feel the console input subject needs a far more thorough discussion than what’s given in the book. It’s certainly enough to fill a chapter of its own. That chapter could for example start with the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther.
+
+
+
+
 
 ---
 

@@ -501,7 +501,10 @@ In the words of [Anthony Williams](https://www.justsoftwaresolutions.co.uk/cplus
 
 > ❞ This is called *perfect forwarding* because the same overload of [the finally invoked function] is selected as if the same argument was supplied to [it] directly. It is essential for library features such as `std::function` and `std::thread` which pass arguments to another (user supplied) function.
 
-## 4. Book ch 3 &mdash; “Input of strings and numbers”
+One can of course interpret “perfect forwarding” literally as a descriptive term, referring to any forwarding that preserves the arguments’ value categories, regardless of mechanism. Then a suitable set of overloads, instead of forwarding-reference parameters forwarded with `std::forward`, is one possibility. But to a learner the book’s “this [`move`-ing] allows an overload taking an rvalue to be called, referred to as *perfect forwarding*” does not convey this more abstract meaning either, though that abstract meaning might be what Frances *had in mind*.
+
+
+## 5. Book ch 3 &mdash; “Input of strings and numbers”
 
 ---
 

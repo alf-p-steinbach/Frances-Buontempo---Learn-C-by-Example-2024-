@@ -530,7 +530,7 @@ I would have negotiated with the example or perhaps just put it in its proper pl
 
 <img src="images/japanese-cat-doll.png" width="12.5%" align="right">
 
-Since C++ lacks portable Unicode console input I feel the console input subject needs a far more thorough discussion than what’s given in the book (no Unicode discussion). It’s certainly enough to fill a chapter of its own. That chapter could for example start with the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther, and for that matter, such as 日本国 кошка.
+Since C++ lacks portable Unicode console input I feel the console input subject needs a far more thorough discussion than what’s given in the book, namely no Unicode discussion, i.e. ignoring an up front problem. This subject is certainly enough to fill a chapter of its own. That chapter could for example start with the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther, and for that matter, such as 日本国 кошка, “Japanese cat” written in Chinese and Russian.
 
 
 

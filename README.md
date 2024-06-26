@@ -289,7 +289,7 @@ A missed opportunity: Frances writes
 
 And that is IMO a good suggestion: doing what’s simple to do. But in addition she could here have suggested using the coloring capability of the {fmt} library, to make readers aware of that. Even if using that capability currently leads to some complex code, due to an apparent bug in the library’s code and/or specification.
 
-The example below additionally shows &mdash; it would be nice it this had been discussed in the book &mdash; how, with a classic add-the-numbers-above implementation, `std::swap` can be used to reduce the vector dynamic allocations to just 2 regardless of the the triangle size.
+The example below additionally shows &mdash; it would be nice if this had been discussed in the book &mdash; how, with a classic add-the-numbers-above implementation, `std::swap` can be used to reduce the vector dynamic allocations to just 2 regardless of the the triangle size.
 
 [*`pascal-triangle.colored.cpp`*](code/ch1/pascal-triangle.colored.cpp):
 
@@ -469,7 +469,7 @@ Output:
 █▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄
 ```
 
-Since the image storage is quite minimal there’s not much point in optimizing this further. But in principle for the above approach one only needs *two* `Bits_row` of storage, with one of them representing the previous row in the iteration over rows. And even that can be dispensed with by calculating the value at any point (*x*, *y*) directly, in constant time!, as just [`!(x & ~y)`](https://www.wolframscience.com/nks/p608--traditional-mathematics-and-mathematical-formulas/); the trick by Stephen Wolfram that I referenced earlier (code example [here](code/ch1/nested-triangles.via-direct-formula.cpp)).
+Since the image storage is quite minimal there’s not much point in optimizing this further. But in principle for the above approach one only needs *two* `Bits_row` of storage, with one of them representing the previous row in the iteration over rows, just as with the vectors in the previous example. And even that can be dispensed with by calculating the value at any point (*x*, *y*) directly, in constant time!, as just [`!(x & ~y)`](https://www.wolframscience.com/nks/p608--traditional-mathematics-and-mathematical-formulas/); the trick by Stephen Wolfram that I referenced earlier (code example [here](code/ch1/nested-triangles.via-direct-formula.cpp)).
 
 In passing, this is again the kind of C++-ish efficient and tight coding example, and background explanation + references, that I wish had been presented in addition to or perhaps instead of checking oddness in a vector-of-vectors storage of range-limited numbers &mdash; it’s an idea for a second edition of the book!
 

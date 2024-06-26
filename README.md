@@ -286,7 +286,9 @@ A missed opportunity: Frances writes
 
 > ❞ […] we can check `x % 2` to find odd numbers. We will display them with a star to see the pattern.
 
-And that is IMO a good suggestion: doing what’s simple to do. But in addition she could here have suggested using the coloring capability of the {fmt} library, to make readers aware of that. Even if using that capability currently leads to some complex code, due to an apparent bug in the library’s code and/or specification, e.g.
+And that is IMO a good suggestion: doing what’s simple to do. But in addition she could here have suggested using the coloring capability of the {fmt} library, to make readers aware of that. Even if using that capability currently leads to some complex code, due to an apparent bug in the library’s code and/or specification.
+
+The example below additionally shows &mdash; it would be nice it this had been discussed in the book &mdash; how, with a classic add-the-numbers-above implementation, `std::swap` can be used to reduce the vector dynamic allocations to just 2 regardless of the the triangle size.
 
 [*`pascal-triangle.colored.cpp`*](code/ch1/pascal-triangle.colored.cpp):
 

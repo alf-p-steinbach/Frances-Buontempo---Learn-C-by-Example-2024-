@@ -532,7 +532,7 @@ I would have negotiated with the example or perhaps just put it in its proper pl
 
 <img src="images/japanese-cat-doll.png" width="10%" align="right">
 
-Since C++ lacks portable Unicode console input I feel the console input subject needs a far more thorough discussion than what’s given in the book, namely no Unicode discussion, i.e. ignoring an up front problem. This subject is certainly enough to fill a chapter of its own. That chapter could for example start with the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther, and for that matter such as 日本国 кошка, “Japanese cat” written in Chinese and Russian.
+Since C++ lacks portable Unicode console input I feel the console input subject needs a far more thorough discussion than what’s given in the book, whichhas no Unicode discussion, i.e. ignores an up front problem. This subject is certainly enough to fill a chapter of its own. That chapter could for example start with the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther, and for that matter such as 日本国 кошка, “Japanese cat” written in Chinese and Russian.
 
 
 ## 6. Book section 3.1 about console input.
@@ -545,6 +545,16 @@ $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Validation and f
 asdasd
 
 ## 7. Book sections 3.1 & 3.2 about random number generation.
+
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.2 Guessing a random number } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Setting up a random number generator } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Using the random number generator } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.3 Guessing a prime number } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking whether the number is prime } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking properties with \tt{static\\_assert} } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Generating a random prime number } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Deciding which digits are correct } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Providing different clues using \tt{std::function} } }$  
 
 asdasd
 

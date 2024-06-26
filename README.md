@@ -18,7 +18,7 @@ When someone attempted to post a pirate copy of this book to a Facebook group th
   - [4.3. Exploration is encouraged. ➕](#43-exploration-is-encouraged-)
   - [4.4. Exploration limits are not addressed.](#44-exploration-limits-are-not-addressed)
   - [4.5 A terminological issue: conflation of *moving* with *perfect forwarding*.](#45-a-terminological-issue-conflation-of-moving-with-perfect-forwarding)
-  - [4. Book ch 3 &mdash; “Input of strings and numbers”](#4-book-ch-3-mdash-input-of-strings-and-numbers)
+- [4. Book ch 3 &mdash; “Input of strings and numbers”](#4-book-ch-3-mdash-input-of-strings-and-numbers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -159,6 +159,7 @@ $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking whether
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Highlighting odd numbers in a row } }$  
 
 <img src="images/wikipedia-pascal-triangle.svg" align="right">
+
 Chapter 2, titled “Containers, iterators, and ranges”, primarily introduces item list notation (curly braces), move semantics and range based loops with `auto`.
 
 This is done very naturally by iterative development of code to display [Pascal’s triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle), a triangle of numbers where each is the sum of the two numbers above, as shown in the figure to the right.
@@ -500,7 +501,7 @@ In the words of [Anthony Williams](https://www.justsoftwaresolutions.co.uk/cplus
 
 > ❞ This is called *perfect forwarding* because the same overload of [the finally invoked function] is selected as if the same argument was supplied to [it] directly. It is essential for library features such as `std::function` and `std::thread` which pass arguments to another (user supplied) function.
 
-### 4. Book ch 3 &mdash; “Input of strings and numbers”
+## 4. Book ch 3 &mdash; “Input of strings and numbers”
 
 ---
 

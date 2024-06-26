@@ -19,6 +19,8 @@ When someone attempted to post a pirate copy of this book to a Facebook group th
   - [4.4. Exploration limits are not addressed.](#44-exploration-limits-are-not-addressed)
   - [4.5 A terminological issue: conflation of *moving* with *perfect forwarding*.](#45-a-terminological-issue-conflation-of-moving-with-perfect-forwarding)
 - [5. Book ch 3 &mdash; “Input of strings and numbers”](#5-book-ch-3-mdash-input-of-strings-and-numbers)
+- [6. Book section 3.1 about console input.](#6-book-section-31-about-console-input)
+- [7. Book sections 3.1 & 3.2 about random number generation.](#7-book-sections-31--32-about-random-number-generation)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -532,6 +534,7 @@ I would have negotiated with the example or perhaps just put it in its proper pl
 
 Since C++ lacks portable Unicode console input I feel the console input subject needs a far more thorough discussion than what’s given in the book, namely no Unicode discussion, i.e. ignoring an up front problem. This subject is certainly enough to fill a chapter of its own. That chapter could for example start with the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther, and for that matter such as 日本国 кошка, “Japanese cat” written in Chinese and Russian.
 
+
 ## 6. Book section 3.1 about console input.
 
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.1 Guessing a predetermined number } }$  
@@ -541,6 +544,9 @@ $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Validation and f
 
 asdasd
 
+## 7. Book sections 3.1 & 3.2 about random number generation.
+
+asdasd
 
 
 

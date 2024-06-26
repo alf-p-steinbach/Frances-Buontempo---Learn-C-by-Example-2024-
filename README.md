@@ -516,7 +516,7 @@ $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Setting up a ran
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Using the random number generator } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.3 Guessing a prime number } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking whether the number is prime } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking properties with \tt{static\_assert} } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking properties with \tt{static\\_assert} } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Generating a random prime number } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Deciding which digits are correct } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Providing different clues using \tt{std::function} } }$  

@@ -542,10 +542,10 @@ $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.3 Guessing a prime number } 
 
 This chapter teaches two otherwise unrelated main subjects, namely console input and random number generation, because they’re both needed for a guessing game. So this chapter shows a weakness of the approach where subjects are introduced as they’re neeeded in some practical example. Frances let the example take charge.
 
-I would have negotiated with the example or perhaps just put it in its proper place, and split this chapter in two:
+I would have negotiated with the example or perhaps just put it in its proper place, and split this chapter &mdash; and possibly also the narrative of the example &mdash; in two:
 
-* first one dealing with console input, and then
-* one dealing with basic random number generation.
+* first one chapter dealing with console input, and then
+* one chapter dealing with basic random number generation.
 
 <img src="images/japanese-cat-doll.png" width="10%" align="right">
 

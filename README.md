@@ -186,7 +186,7 @@ The “and/or”: one doesn’t always need to understand everything about the p
 
 ### 4.2. I wish efficiency was *really* discussed.
 
-The book’ section 2.2 “Creating and displaying Pascal’s triangle” presents the following code
+The book’s section 2.2 “Creating and displaying Pascal’s triangle” presents the following code
 
 > ```cpp
 > auto generate_triangle(int rows)

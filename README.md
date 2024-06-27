@@ -13,8 +13,8 @@ When someone attempted to post a pirate copy of this book to a Facebook group th
 - [2. The book’s goal.](#2-the-books-goal)
 - [3. Book ch 1 &mdash; “Hello again, C++!”.](#3-book-ch-1-mdash-hello-again-c)
 - [4. Book ch 2 &mdash; “Containers, iterators, and ranges”.](#4-book-ch-2-mdash-containers-iterators-and-ranges)
-  - [4.1. Improvement potential.](#41-improvement-potential)
-  - [4.2. I wish efficiency was discussed.](#42-i-wish-efficiency-was-discussed)
+  - [4.1. General improvement potential.](#41-general-improvement-potential)
+  - [4.2. I wish efficiency was *really* discussed.](#42-i-wish-efficiency-was-really-discussed)
   - [4.3. Exploration is encouraged. ➕](#43-exploration-is-encouraged-)
   - [4.4. Exploration limits are not addressed.](#44-exploration-limits-are-not-addressed)
   - [4.5 A terminological issue: conflation of *moving* with *perfect forwarding*.](#45-a-terminological-issue-conflation-of-moving-with-perfect-forwarding)
@@ -168,7 +168,7 @@ This is done very naturally by iterative development of code to display [Pascal�
 
 Along the way the ranges sub-library and C++20’s `std::format` appear, with mention that the latter is a partial adoption from the 3<sup>rd</sup> party [{fmt} library](https://github.com/fmtlib/fmt), but alas no mention of the separate original 3<sup>rd</sup> party [Ranges v3 library](https://github.com/ericniebler/range-v3) or its precursor the [Boost Range sub-library](https://www.boost.org/doc/libs/1_85_0/libs/range/doc/html/index.html).
 
-### 4.1. Improvement potential.
+### 4.1. General improvement potential.
 
 Three main improvement potentials I see with this chapter:
 
@@ -184,7 +184,35 @@ There is a strong connection between the three points above, for both efficiency
 The “and/or”: one doesn’t always need to understand everything about the problem; knowledge can suffice. For example, the sum of $1^2$ through $n^2$ can be calculated as just $n(n + 1)(2n + 1)/6$. It’s OK to just use the formula in one’s code without understanding the details of how to derive it or prove it, and understanding the formula will probably not help, but a reference, e.g. a mention of and perhaps also link to “[pyramidal numbers](https://en.wikipedia.org/wiki/Square_pyramidal_number)”, can help.
 
 
-### 4.2. I wish efficiency was discussed.
+### 4.2. I wish efficiency was *really* discussed.
+
+The book’ section 2.2 “Creating and displaying Pascal’s triangle” presents the following code
+
+> ```cpp
+> auto generate_triangle(int rows)
+> {
+>     std::vector<int> data;
+>     std::vector<std::vector<int>> triangle;
+>     for (int row = 0; row < rows; ++row)
+>     {
+>         data = get_next_row(data);
+>         triangle.push_back(data);
+>     }
+>     return triangle;
+> }
+> ```
+
+&hellip; followed by the remark that
+
+> ❞ […] this approach is not particularly efficient. We can do better.
+
+Which is true, but the issue then considered is not the inefficiency of dynamic allocations, which in particular is present in the vector of vectors, but the less significant inefficiency of copying: “we can avoid the copy”.
+
+With vectors copying *can* also introduce costly dynamic allocations, so it is a good thing to avoid copying of vectors. And Frances uses the issue of the needless copying as a means to introduce move semantics. But this is like a car repair shop only polishing a rear view mirror on a car with a broken exhaust pipe. Sure, the dirty mirror contributed to some unsafety. But the broken exhaust pipe is a much more significant problem that dwarfes the mirror issue.
+
+A focus on the real inefficency, the dynamic allocations, would lead one to ditch the vector of vectors with at least one dynamic allocation per vector, and one would seek to avoid multiple creations of a vector such as with the above repeated calls of `get_next_row` (ditto).
+
+Storing a full Pascal’s triangle requires at most one vector, with a single buffer allocation, and this is the generally recommended way to implement a matrix. Generating a Pascal’s triangle can very easily be reduced to using two vectors, as I show in this review’s [section 4.4](#44-exploration-limits-are-not-addressed). And with some analysis, shown below, it can be reduced all the way to simple incremental calculation of each number, requiring no vectors at all &mdash; no dynamic allocations.
 
 A C++-ish efficiency oriented perspective usually starts with *understanding* what the task is about, i.e. analysis, and not, in the case of Pascal’s triangle, just remembering the mechanics of one way to generate it.
 

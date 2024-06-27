@@ -208,7 +208,7 @@ The book’s section 2.2 “Creating and displaying Pascal’s triangle” prese
 
 Which is true, but the issue then considered is not the inefficiency of dynamic allocations, which in particular is present in the vector of vectors, but the less significant inefficiency of copying: “we can avoid the copy”.
 
-With vectors copying *can* also introduce costly dynamic allocations, so it is a good thing to avoid copying of vectors. And Frances uses the issue of the needless copying as a means to introduce move semantics. But this is like a car repair shop only polishing a rear view mirror on a car with a broken exhaust pipe. Sure, the dirty mirror contributed to some unsafety. But the broken exhaust pipe is a much more significant problem that dwarfes the mirror issue.
+With vectors copying *can* also introduce costly dynamic allocations, so it is a good thing to generally avoid copying of vectors. And Frances uses the issue of the needless copying as a means to introduce move semantics. But this is like a car repair shop only polishing a rear view mirror on a car with a broken exhaust pipe. Sure, the dirty mirror contributed to some unsafety. But the broken exhaust pipe is a much more significant problem that dwarfes the mirror issue.
 
 A focus on the real inefficency, the dynamic allocations, would lead one to ditch the vector of vectors with at least one dynamic allocation per vector, and one would seek to avoid multiple creations of a vector such as with the above repeated calls of `get_next_row` (ditto).
 
@@ -531,7 +531,7 @@ In the words of [Anthony Williams](https://www.justsoftwaresolutions.co.uk/cplus
 
 > ❞ This is called *perfect forwarding* because the same overload of [the finally invoked function] is selected as if the same argument was supplied to [it] directly. It is essential for library features such as `std::function` and `std::thread` which pass arguments to another (user supplied) function.
 
-One can of course interpret “perfect forwarding” literally as a descriptive term, referring to any forwarding that preserves the arguments’ value categories, regardless of mechanism. Then a suitable set of overloads, instead of forwarding-reference parameters forwarded with `std::forward`, is one possibility. But to a learner the book’s “this [`move`-ing] allows an overload taking an rvalue to be called, referred to as *perfect forwarding*” does not convey this more abstract meaning either, though that abstract meaning might be what Frances *had in mind*.
+One can of course interpret “perfect forwarding” literally as a descriptive term, referring to any forwarding that preserves the arguments’ value categories, regardless of mechanism. Then a suitable set of overloads, instead of forwarding-reference parameters forwarded with `std::forward`, is one possibility. But to a learner the book’s description and sole definition “this [`move`-ing] allows an overload taking an rvalue to be called, referred to as *perfect forwarding*” does not convey the more abstract meaning either, though that abstract meaning might be what Frances *had in mind*.
 
 
 ## 5. Book ch 3 &mdash; “Input of strings and numbers”
@@ -540,7 +540,7 @@ $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.1 Guessing a predetermined n
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.2 Guessing a random number } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.3 Guessing a prime number } }$  
 
-This chapter mixes two otherwise unrelated main subjects, namely input and random number generation, because they’re both needed for a guessing game. So in a way this chapter shows a weakness of the approach where subjects are introduced as they’re neeeded in some practical example. Frances let the example take charge.
+This chapter teaches two otherwise unrelated main subjects, namely console input and random number generation, because they’re both needed for a guessing game. So this chapter shows a weakness of the approach where subjects are introduced as they’re neeeded in some practical example. Frances let the example take charge.
 
 I would have negotiated with the example or perhaps just put it in its proper place, and split this chapter in two:
 
@@ -549,7 +549,9 @@ I would have negotiated with the example or perhaps just put it in its proper pl
 
 <img src="images/japanese-cat-doll.png" width="10%" align="right">
 
-Since C++ lacks portable Unicode console input I feel the console input subject needs a far more thorough discussion than what’s given in the book, which has no Unicode discussion, i.e. ignores an up front problem. This subject is certainly enough to fill a chapter of its own. That chapter could for example start with the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther, and for that matter such as 日本国 кошка, “Japanese cat” written in Chinese and Russian.
+Since C++ lacks portable Unicode console input I feel the console input subject needs a far more thorough discussion than what’s given in the book, which has no Unicode discussion, i.e. it ignores an up front problem for a learner. There is also a more subtle, rarely relevant but still very important problem: that functions like `std::getline` don’t limit the input line length so that a buggy text producer process, or intentional sabotage, can make it allocate memory *ad inifinitum* &mdash; with undesirable effect on the computer. So the subject of input is certainly enough to fill a chapter of its own.
+
+That chapter could for example start with the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther, and for that matter such as 日本国 кошка, “Japanese cat” written in Chinese and Russian.
 
 
 ## 6. Book section 3.1 about console input.

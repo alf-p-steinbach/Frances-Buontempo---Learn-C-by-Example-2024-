@@ -510,18 +510,8 @@ One can of course interpret “perfect forwarding” literally as a descriptive 
 
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3 Input of strings and numbers } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.1 Guessing a predetermined number } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting user input the hard way } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting optional numeric input } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Validation and feedback using \tt{std::function} and lambdas } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.2 Guessing a random number } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Setting up a random number generator } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Using the random number generator } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.3 Guessing a prime number } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking whether the number is prime } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Checking properties with \tt{static\\_assert} } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Generating a random prime number } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Deciding which digits are correct } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Providing different clues using \tt{std::function} } }$  
 
 This chapter mixes two otherwise unrelated main subjects, namely input and random number generation, because they’re both needed for a guessing game. So in a way this chapter shows a weakness of the approach where subjects are introduced as they’re neeeded in some practical example. Frances let the example take charge.
 

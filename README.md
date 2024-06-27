@@ -508,7 +508,6 @@ One can of course interpret “perfect forwarding” literally as a descriptive 
 
 ## 5. Book ch 3 &mdash; “Input of strings and numbers”
 
-$\color{orange} \scriptsize{ \hspace{24pt} \text{ 3 Input of strings and numbers } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.1 Guessing a predetermined number } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.2 Guessing a random number } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.3 Guessing a prime number } }$  

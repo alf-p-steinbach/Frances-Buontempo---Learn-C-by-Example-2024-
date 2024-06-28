@@ -581,14 +581,14 @@ So maybe Frances has the same foresight as Andrew Koenig, who as I recall replie
 
 But still it would be worth mentioning that in order to support niche environments such as the mentioned GIT bash and MSYS2 bash, the [Boost NoWide library](https://www.boost.org/doc/libs/master/libs/nowide/doc/html/index.html) can be used for portable Unicode console string input.
 
-### 6.2 Discussion limited to input of integers.
+### 6.2 Missing discussion of floating point input and C++03 → C++11 difference.
 
 While the chapter title “Input of strings and numbers” says “numbers”, in this chapter Frances only discusses input of *integers*.
 
 Integer input is different from floating point input in a number (!) of ways:
 
 * The syntax of a floating point number specification depends on locale  
-  and iostreams unfortunately have locale. This is especially about the fractional part delimiter which is `.` in English but `,` in mainland Europe. In practice the syntax of integers, however, is independent of locale.
+  and an iostream unfortunately has a locale. This is especially about the fractional part delimiter which is `.` in English but `,` in mainland Europe. In practice the syntax of integers, however, is independent of locale.
 * The floating point types usually support `inf` and `nan` values  
   spelled out that way in input text, while the integer types do not have this. Also as I recall there is an Apple clang++ non-conformance and/or language extension issue for `inf`/`nan` input.
 * Integer input text can be expected to be octal or hexadecimal  

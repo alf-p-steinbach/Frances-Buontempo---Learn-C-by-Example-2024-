@@ -549,7 +549,13 @@ I would have negotiated with the example or perhaps just put it in its proper pl
 
 Maybe in this order or maybe in the opposite order.
 
----
+
+## 6. Book section 3.1 about console input.
+
+$\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.1 Guessing a predetermined number } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting user input the hard way } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting optional numeric input } }$  
+$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Validation and feedback using \tt{std::function} and lambdas } }$  
 
 The chapter title mentions “input of strings” but the discussion of `string` input, at the start of section 3.1.2, is just *3 short paragraphs with 2 two-line code snippet examples*. Here Frances mentions and exemplifies that iostreams input to a `string` can be done with `>>` or with `getline`, and she describes the general effect of each. She does not address
 
@@ -572,14 +578,6 @@ But still it would be worth mentioning that in order to support niche environmen
 Anyway the subject of console input is certainly enough to fill a chapter of its own.
 
 That chapter could for example start with the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther, and for that matter such as 日本国 кошка, “Japanese cat” written in Chinese and Russian.
-
-
-## 6. Book section 3.1 about console input.
-
-$\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.1 Guessing a predetermined number } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting user input the hard way } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting optional numeric input } }$  
-$\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Validation and feedback using \tt{std::function} and lambdas } }$  
 
 asdasd
 

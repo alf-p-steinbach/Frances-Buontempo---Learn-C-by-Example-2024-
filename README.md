@@ -569,7 +569,7 @@ The chapter title “Input of strings and numbers” mentions “input of string
   &mdash; i.e. how to work around this  C++ standard library design level correctness issue; or
 * typical learner’s problems such as mixing `>>` and `getline` with perplexing undesired effect.
 
-There is also strongly associated knowledge such as the technique of using `getline` to read line parts by specifying a separator as “line” terminator, that could/should have been mentioned.
+There is also strongly associated knowledge such as the technique of using `getline` to read line parts by specifying a separator as “line” terminator, that, from a subject oriented or simply book as a whole point of view, could/should have been mentioned.
 
 General Unicode console input might sound like a perfection of some rare technical problem, not suitable for learners.
 

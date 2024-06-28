@@ -594,9 +594,9 @@ Integer input is different from floating point input in a number (!) of ways:
 * Integer input text can be expected to be octal or hexadecimal  
   depending on the flags of the stream, while this is not so for floating point.
 
-Since the book aims to update the reader from C++03 to post-C++11 "modern C++", another remarkable lack of discussion is the unmentioned fact that `>>` input of numbers could have Undefined Behavior in C++03, i.e. that one can much more safely use `>>` in C++11 and later.
+Since the book aims to update the reader from C++03 to post-C++11 modern C++, another remarkable lack of discussion is the unmentioned fact that `>>` input of numbers could have Undefined Behavior in C++03, i.e. that one can much more safely use `>>` in C++11 and later.
 
-Namely, in C++03 the iostreams input text conversion was specified in terms of `num_get` which in turn delegated to C’s `scanf`, §22.2.2.1.2/11 “A sequence of chars has been accumulated in stage 2 that is converted (according to the rules of `scanf`) to a value of the type of *`val`*”, where C99 §7.19.6.2/10 said "if the result of the conversion cannot be represented in the object, the behavior is undefined", which is the case for overflow.
+Namely, in C++03 the iostreams input text conversion was specified in terms of `num_get` which in turn delegated to C’s `scanf`, §22.2.2.1.2/11 “A sequence of chars has been accumulated in stage 2 that is converted (according to the rules of `scanf`) to a value of the type of *`val`*”, where C99 §7.19.6.2/10 said “if the result of the conversion cannot be represented in the object, the behavior is undefined”, which is the case for overflow.
 
 
 ---

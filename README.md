@@ -557,6 +557,8 @@ $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting user i
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting optional numeric input } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Validation and feedback using \tt{std::function} and lambdas } }$  
 
+### 6.1 Too superficial treatment of console string input.
+
 The chapter title “Input of strings and numbers” mentions “input of strings” prominently, but the discussion of `string` input, at the start of section 3.1.2, is just *3 short paragraphs with 2 two-line code snippet examples*. Here Frances mentions and exemplifies that iostreams input to a `string` can be done with `>>` or with `getline`, and she describes the general effect of each. She does not address
 
 * how to input a general Unicode string from a console in a portable way  
@@ -579,9 +581,33 @@ So maybe Frances has the same foresight as Andrew Koenig, who as I recall replie
 
 But still it would be worth mentioning that in order to support niche environments such as the mentioned GIT bash and MSYS2 bash, the Boost NoWide library can be used for portable Unicode console string input.
 
+### 6.2 Discussion limited to input of integers.
+
+While the chapter title “Input of strings and numbers” says “numbers”, in this chapter Frances only discusses input of *integers*.
+
+Integer input is different from floating point input in a number (!) of ways:
+
+* The syntax of a floating point number specification depends on locale  
+  and iostreams unfortunately have locale. This is especially about the fractional part delimiter which is `.` in English but `,` in mainland Europe. In practice the syntax of integers, however, is independent of locale.
+* The floating point types usually support `inf` and `nan` values  
+  spelled out that way in input text, while the integer types do not have this. Also as I recall there is an Apple clang++ non-conformance and/or language extension issue for `inf`/`nan` input.
+* Integer input text can be expected to be octal or hexadecimal  
+  depending on the flags of the stream, while this is not so for floating point.
+
+Since the book aims to update the reader from C++03 to post-C++11 "modern C++", another remarkable lack of discussion is the unmentioned fact that `>>` input of numbers could have Undefined Behavior in C++03, i.e. that one can much more safely use `>>` in C++11 and later.
+
+Namely, in C++03 the iostreams input text conversion was specified in terms of `num_get` which in turn delegated to C’s `scanf`, §22.2.2.1.2/11 “A sequence of chars has been accumulated in stage 2 that is converted (according to the rules of `scanf`) to a value of the type of *`val`*”, where C99 §7.19.6.2/10 said "if the result of the conversion cannot be represented in the object, the behavior is undefined", which is the case for overflow.
+
+
+---
+
+xxx
+
 Anyway the subject of console input is certainly enough to fill a chapter of its own.
 
 That chapter could for example start with the mentioned natural “Hello, world!” 2 program.
+
+---
 
 asdasd
 

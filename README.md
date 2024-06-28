@@ -557,7 +557,7 @@ $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting user i
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting optional numeric input } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Validation and feedback using \tt{std::function} and lambdas } }$  
 
-The chapter title mentions “input of strings” but the discussion of `string` input, at the start of section 3.1.2, is just *3 short paragraphs with 2 two-line code snippet examples*. Here Frances mentions and exemplifies that iostreams input to a `string` can be done with `>>` or with `getline`, and she describes the general effect of each. She does not address
+The chapter title “Input of strings and numbers” mentions “input of strings” but the discussion of `string` input, at the start of section 3.1.2, is just *3 short paragraphs with 2 two-line code snippet examples*. Here Frances mentions and exemplifies that iostreams input to a `string` can be done with `>>` or with `getline`, and she describes the general effect of each. She does not address
 
 * how to input a general Unicode string from a console in a portable way  
   &mdash; i.e. how to work around this limitation of Windows C++ standard library implementations;
@@ -567,7 +567,7 @@ The chapter title mentions “input of strings” but the discussion of `string`
 
 There is also strongly associated knowledge such as the technique of using `getline` to read line parts by specifying a separator as “line” terminator, that could/should have been mentioned.
 
-Portable Unicode console input was recently, apparently in the time between the book was published and the writing of this review, made much less of a problem because Windows Terminal now supports UTF-8 console input. That is, ordinary byte stream input from a Windows Terminal console with UTF-8 as its configured text encoding, its “active codepage”, now yields UTF-8 encoded text. Earlier it just yielded nullbytes for non-ASCII characters, which was due to a limitation of the Windows API which is still there for classic console windows and for environments based on them such as MinTTY used by GIT bash and MSYS2 bash.
+Portable Unicode console input was recently, apparently in the time between the book was published and the writing of this review, made much less of a problem because [Windows Terminal](https://github.com/microsoft/terminal) now supports UTF-8 console input. That is, ordinary byte stream input from a Windows Terminal console with UTF-8 as its configured text encoding, its “active codepage”, now yields UTF-8 encoded text. Earlier it just yielded nullbytes for non-ASCII characters, which was due to a limitation of the Windows API which is still there for classic console windows and for environments based on them such as MinTTY used by GIT bash and MSYS2 bash.
 
 So maybe Frances has the same foresight as Andrew Koenig, who as I recall replied that some apparent oversight or error was not that, because it would in a short time *be* standard&hellip;
 

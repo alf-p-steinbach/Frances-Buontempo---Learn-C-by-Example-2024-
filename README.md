@@ -616,13 +616,13 @@ The first presented code snippet,
 &hellip; has two main issues:
 
 * representing a constant as a function  
-  which is usually needlessly verbose; inconveniently requires function invocations in the client code; and generally is a technique for languages that lack `const` such as Python, not C++ (though a Meyers’ singleton function can be useful for a constant with dynamic initialization in a header file); and
+  which usually &mdash; and here! &mdash; is needlessly verbose; inconveniently requires `()` function invocations in the client code; and generally is a technique for languages that lack `const` such as Python, not C++, though a Meyers’ singleton function can be useful for a constant with dynamic initialization in a header file; and
 * using an `unsigned` integer type for *numbers*  
-  which is a bug attractor and therefore [recommended against by the Core C++ Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es106-dont-try-to-avoid-negative-values-by-using-unsigned).
+  which is a bug attractor and therefore [recommended against by the Core C++ Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es106-dont-try-to-avoid-negative-values-by-using-unsigned) (the link is to what I deem to be the part most directly relevant to the book’s usage, in the middle of the guidelines’ discussion of this).
 
 The claimed rationale is “If we put the predetermined number in a function, we can change it later”, but that is so also for a conventional `const` constant.
 
-It would be a different matter if the function had a name like `secret_number`, because with *that* function it could later be changed to e.g. a random number without affecting the client code. But first of all with the function name `some_const_number` the client code will then have to a name like `secret_number` the rationale is meaningless, vacuous, because nothing prevents a conventional `const` constant to be initialized with a function call. So this looks like something uncritically adopted from some original code written in some other programming language.
+In particular, nothing prevents a conventional `const` constant from being initialized with a function call. So it can later be changed to e.g. a computed random number, without affecting the client code. And so this looks like something uncritically adopted from some original code written in some other programming language.
 
 
 ---

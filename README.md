@@ -567,13 +567,17 @@ The chapter title “Input of strings and numbers” mentions “input of string
 
 There is also strongly associated knowledge such as the technique of using `getline` to read line parts by specifying a separator as “line” terminator, that could/should have been mentioned.
 
-Portable Unicode console input was recently, apparently in the time between the book was published and the writing of this review, made much less of a problem because [Windows Terminal](https://github.com/microsoft/terminal) now supports UTF-8 console input. That is, ordinary byte stream input from a Windows Terminal console with UTF-8 as its configured text encoding, its “active codepage”, now [yields UTF-8 encoded text](code/ch2/hello-3.cpp). Earlier it just yielded nullbytes for non-ASCII characters, which was due to a limitation of the Windows API which is still there for classic console windows and for environments based on them such as MinTTY used by GIT bash and MSYS2 bash.
+General Unicode console input might sound like a perfection of some rare technical problem, not suitable for learners.
+
+<img src="images/japanese-cat-doll.png" width="10%" align="right">
+
+However it has for a very long time, up till and past the publication of the book, been an up front problem for beginners. It meant that the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther, and for that matter such as 日本国 кошка, “Japanese cat” written in Chinese and Russian,  would *not work* in Windows. So it needed addressing.
+
+Happily, apparently in the time between the book was published and the writing of this review, it was made much less of a problem because [Windows Terminal](https://github.com/microsoft/terminal) now supports UTF-8 console input. That is, ordinary byte stream input from a Windows Terminal console with UTF-8 as its configured text encoding, its “active codepage”, now [yields UTF-8 encoded text](code/ch2/hello-3.cpp). Earlier it just yielded nullbytes for non-ASCII characters, which was due to a limitation of the Windows API which is still there for classic console windows and for environments based on them such as MinTTY used by GIT bash and MSYS2 bash.
 
 So maybe Frances has the same foresight as Andrew Koenig, who as I recall replied that some apparent oversight or error was not that, because the description would in a short time *be* standard&hellip;
 
 But still it would be worth mentioning that in order to support niche environments such as the mentioned GIT bash and MSYS2 bash, the Boost NoWide library can be used for portable Unicode console string input.
-
-<img src="images/japanese-cat-doll.png" width="10%" align="right">
 
 Anyway the subject of console input is certainly enough to fill a chapter of its own.
 

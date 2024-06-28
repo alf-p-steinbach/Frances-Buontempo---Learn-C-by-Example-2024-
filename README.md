@@ -581,7 +581,7 @@ But still it would be worth mentioning that in order to support niche environmen
 
 Anyway the subject of console input is certainly enough to fill a chapter of its own.
 
-That chapter could for example start with the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther, and for that matter such as 日本国 кошка, “Japanese cat” written in Chinese and Russian.
+That chapter could for example start with the mentioned natural “Hello, world!” 2 program.
 
 asdasd
 

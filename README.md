@@ -569,7 +569,7 @@ There is also strongly associated knowledge such as the technique of using `getl
 
 Portable Unicode console input was recently, apparently in the time between the book was published and the writing of this review, made much less of a problem because [Windows Terminal](https://github.com/microsoft/terminal) now supports UTF-8 console input. That is, ordinary byte stream input from a Windows Terminal console with UTF-8 as its configured text encoding, its “active codepage”, now [yields UTF-8 encoded text](code/ch2/hello-3.cpp). Earlier it just yielded nullbytes for non-ASCII characters, which was due to a limitation of the Windows API which is still there for classic console windows and for environments based on them such as MinTTY used by GIT bash and MSYS2 bash.
 
-So maybe Frances has the same foresight as Andrew Koenig, who as I recall replied that some apparent oversight or error was not that, because it would in a short time *be* standard&hellip;
+So maybe Frances has the same foresight as Andrew Koenig, who as I recall replied that some apparent oversight or error was not that, because the description would in a short time *be* standard&hellip;
 
 But still it would be worth mentioning that in order to support niche environments such as the mentioned GIT bash and MSYS2 bash, the Boost NoWide library can be used for portable Unicode console string input.
 

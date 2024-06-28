@@ -20,6 +20,8 @@ When someone attempted to post a pirate copy of this book to a Facebook group th
   - [4.5 A terminological issue: conflation of *moving* with *perfect forwarding*.](#45-a-terminological-issue-conflation-of-moving-with-perfect-forwarding)
 - [5. Book ch 3 &mdash; “Input of strings and numbers”](#5-book-ch-3-mdash-input-of-strings-and-numbers)
 - [6. Book section 3.1 about console input.](#6-book-section-31-about-console-input)
+  - [6.1 Too superficial treatment of console string input.](#61-too-superficial-treatment-of-console-string-input)
+  - [6.2 Missing discussion of floating point input and C++03 → C++11 difference.](#62-missing-discussion-of-floating-point-input-and-c03-%E2%86%92-c11-difference)
 - [7. Book sections 3.1 & 3.2 about random number generation.](#7-book-sections-31--32-about-random-number-generation)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->

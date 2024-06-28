@@ -643,7 +643,7 @@ The next code snippet,
 > }
 > ```
 
-&hellip; has the following issues, in addition to the use of `unsigned` for *numbers*:
+&hellip; has the following issues:
 
 * missing separation of concerns  
   in particular that this input operation takes charge of the national language and content of the retry prompt (it should e.g. have been a parameter);
@@ -651,6 +651,25 @@ The next code snippet,
   which means that e.g. input `1 2 3` can cause undesired client code behavior; and
 * on failure it blithely retries *ad infinitum*  
   which means that indicating EOF on the input stream (`Ctrl Z` in Windows, `Ctrl D` in Unix) can cause a non-interactive infinite loop in this function.
+
+And it would be nice if it had been named e.g. `input_int`, to make it more clear that it’s not a text line input function like Python’s `input`.
+
+As indicated by the code comment “try a negative number!”. at this point using `unsigned` is ***a pedagogical measure***. For later Frances explains that “We can fix this by changing the type to `int`”, and mostly she does that. However, use of `unsigned` persists, probably inadvertently, in *some* later code examples, e.g. in §3.1.3:
+
+> ```cpp
+> void guess_number_with_clues(unsigned number, auto message);
+> ```
+
+&hellip; and
+
+> ```cpp
+> void guess_number_with_clues(unsigned number,
+>     std::invocable<int, int> auto message)
+> ```
+
+
+
+Fixing the above bullet point issues can go like this:
 
 
 ---

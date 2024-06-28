@@ -540,16 +540,36 @@ $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.1 Guessing a predetermined n
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.2 Guessing a random number } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \text{ 3.3 Guessing a prime number } }$  
 
-This chapter teaches two otherwise unrelated main subjects, namely console input and random number generation, because they’re both needed for a guessing game. So this chapter shows a weakness of the approach where subjects are introduced as they’re neeeded in some practical example. Frances let the example take charge.
+This chapter with a somewhat misleading title, teaches two otherwise unrelated main subjects, namely console input and random number generation, because they’re both needed for a guessing game.
 
 I would have negotiated with the example or perhaps just put it in its proper place, and split this chapter &mdash; and possibly also the narrative of the example &mdash; in two:
 
-* first one chapter dealing with console input, and then
+* one chapter dealing with console input, and
 * one chapter dealing with basic random number generation.
+
+Maybe in this order or maybe in the opposite order.
+
+---
+
+The chapter title mentions “input of strings” but the discussion of `string` input, at the start of section 3.1.2, is just *3 short paragraphs with 2 two-line code snippet examples*. Here Frances mentions and exemplifies that iostreams input to a `string` can be done with `>>` or with `getline`, and she describes the general effect of each. She does not address
+
+* how to input a general Unicode string from a console in a portable way  
+  &mdash; i.e. how to work around this limitation of Windows C++ standard library implementations;
+* how to input a text line safely also when the input can be ~infinite  
+  &mdash; i.e. how to work around this  C++ standard library design level correctness issue; or
+* typical learner’s problems such as mixing `>>` and `getline` with perplexing undesired effect.
+
+There is also strongly associated knowledge such as the technique of using `getline` to read line parts by specifying a separator as “line” terminator, that could/should have been mentioned.
+
+Portable Unicode console input was recently, apparently in the time between the book was published and the writing of this review, made much less of a problem because Windows Terminal now supports UTF-8 console input. That is, ordinary byte stream input from a Windows Terminal console with UTF-8 as its configured text encoding, its “active codepage”, now yields UTF-8 encoded text. Earlier it just yielded nullbytes for non-ASCII characters, which was due to a limitation of the Windows API which is still there for classic console windows and for environments based on them such as MinTTY used by GIT bash and MSYS2 bash.
+
+So maybe Frances has the same foresight as Andrew Koenig, who as I recall replied that some apparent oversight or error was not that, because it would in a short time *be* standard&hellip;
+
+But still it would be worth mentioning that in order to support niche environments such as the mentioned GIT bash and MSYS2 bash, the Boost NoWide library can be used for portable Unicode console string input.
 
 <img src="images/japanese-cat-doll.png" width="10%" align="right">
 
-Since C++ lacks portable Unicode console input I feel the console input subject needs a far more thorough discussion than what’s given in the book, which has no Unicode discussion, i.e. it ignores an up front problem for a learner. There is also a more subtle, rarely relevant but still very important problem: that functions like `std::getline` don’t limit the input line length so that a buggy text producer process, or intentional sabotage, can make it allocate memory *ad inifinitum* &mdash; with undesirable effect on the computer. So the subject of input is certainly enough to fill a chapter of its own.
+Anyway the subject of console input is certainly enough to fill a chapter of its own.
 
 That chapter could for example start with the natural “Hello, world!” 2 program, which asks for the user’s name and produces a greeting using it, and which should do that correctly also for non-English names such as Bjørn Håvard Sæther, and for that matter such as 日本国 кошка, “Japanese cat” written in Chinese and Russian.
 

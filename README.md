@@ -609,7 +609,7 @@ The first presented code snippet,
 > // Listing 3.1
 > unsigned some_const_number()
 > {
-> 	return 42;
+>     return 42;
 > }
 > ```
 
@@ -632,14 +632,14 @@ The next code snippet,
 > // Listing 3.2
 > unsigned input()
 > {
-> 	unsigned number; //try a negative number!
-> 	while (!(std::cin >> number))
-> 	{
-> 		std::cin.clear();
-> 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-> 		std::cout << "Please enter a number.\n>";
-> 	}
-> 	return number;
+>     unsigned number; //try a negative number!
+>     while (!(std::cin >> number))
+>     {
+>         std::cin.clear();
+>         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+>         std::cout << "Please enter a number.\n>";
+>     }
+>     return number;
 > }
 > ```
 

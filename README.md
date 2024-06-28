@@ -22,6 +22,7 @@ When someone attempted to post a pirate copy of this book to a Facebook group th
 - [6. Book section 3.1 about console input.](#6-book-section-31-about-console-input)
   - [6.1 Too superficial treatment of console string input.](#61-too-superficial-treatment-of-console-string-input)
   - [6.2 Missing discussion of floating point input and C++03 → C++11 difference.](#62-missing-discussion-of-floating-point-input-and-c03-%E2%86%92-c11-difference)
+  - [6.3 Some issues with the presented code.](#63-some-issues-with-the-presented-code)
 - [7. Book sections 3.1 & 3.2 about random number generation.](#7-book-sections-31--32-about-random-number-generation)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -599,6 +600,29 @@ Integer input is different from floating point input in a number (!) of ways:
 Since the book aims to update the reader from C++03 to post-C++11 modern C++, another remarkable lack of discussion is the unmentioned fact that `>>` input of numbers could have Undefined Behavior in C++03, i.e. that one can much more safely use `>>` in C++11 and later.
 
 Namely, in C++03 the iostreams input text conversion was specified in terms of `num_get` which in turn delegated to C’s `scanf`, §22.2.2.1.2/11 “A sequence of chars has been accumulated in stage 2 that is converted (according to the rules of `scanf`) to a value of the type of *`val`*”, where C99 §7.19.6.2/10 said “if the result of the conversion cannot be represented in the object, the behavior is undefined”, which is the case for overflow.
+
+### 6.3 Some issues with the presented code.
+
+The first presented code snippet,
+
+> ```cpp
+> // Listing 3.1
+> unsigned some_const_number()
+> {
+> 	return 42;
+> }
+> ```
+
+&hellip; has two main issues:
+
+* representing a constant as a function  
+  which is usually needlessly verbose; inconveniently requires function invocations in the client code; and generally is a technique for languages that lack `const` such as Python, not C++ (though a Meyers’ singleton function can be useful for a constant with dynamic initialization in a header file); and
+* using an `unsigned` integer type for *numbers*  
+  which is a bug attractor and therefore [recommended against by the Core C++ Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es106-dont-try-to-avoid-negative-values-by-using-unsigned).
+
+The claimed rationale is “If we put the predetermined number in a function, we can change it later”, but that is so also for a conventional `const` constant.
+
+It would be a different matter if the function had a name like `secret_number`, because with *that* function it could later be changed to e.g. a random number without affecting the client code. But first of all with the function name `some_const_number` the client code will then have to a name like `secret_number` the rationale is meaningless, vacuous, because nothing prevents a conventional `const` constant to be initialized with a function call. So this looks like something uncritically adopted from some original code written in some other programming language.
 
 
 ---

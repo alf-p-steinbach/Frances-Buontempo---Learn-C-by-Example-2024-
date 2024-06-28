@@ -557,7 +557,7 @@ $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting user i
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Accepting optional numeric input } }$  
 $\color{orange} \scriptsize{ \hspace{24pt} \hspace{24pt} \text{ Validation and feedback using \tt{std::function} and lambdas } }$  
 
-The chapter title “Input of strings and numbers” mentions “input of strings” but the discussion of `string` input, at the start of section 3.1.2, is just *3 short paragraphs with 2 two-line code snippet examples*. Here Frances mentions and exemplifies that iostreams input to a `string` can be done with `>>` or with `getline`, and she describes the general effect of each. She does not address
+The chapter title “Input of strings and numbers” mentions “input of strings” prominently, but the discussion of `string` input, at the start of section 3.1.2, is just *3 short paragraphs with 2 two-line code snippet examples*. Here Frances mentions and exemplifies that iostreams input to a `string` can be done with `>>` or with `getline`, and she describes the general effect of each. She does not address
 
 * how to input a general Unicode string from a console in a portable way  
   &mdash; i.e. how to work around this limitation of Windows C++ standard library implementations;

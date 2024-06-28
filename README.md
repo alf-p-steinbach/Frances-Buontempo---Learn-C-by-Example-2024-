@@ -624,6 +624,34 @@ The claimed rationale is “If we put the predetermined number in a function, we
 
 In particular, nothing prevents a conventional `const` constant from being initialized with a function call. So it can later be changed to e.g. a computed random number, without affecting the client code. And so this looks like something uncritically adopted from some original code written in some other programming language.
 
+---
+
+The next code snippet,
+
+> ```cpp
+> // Listing 3.2
+> unsigned input()
+> {
+> 	unsigned number; //try a negative number!
+> 	while (!(std::cin >> number))
+> 	{
+> 		std::cin.clear();
+> 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+> 		std::cout << "Please enter a number.\n>";
+> 	}
+> 	return number;
+> }
+> ```
+
+&hellip; has the following issues, in addition to the use of `unsigned` for *numbers*:
+
+* missing separation of concerns  
+  in particular that this input operation takes charge of the national language and content of the retry prompt (it should e.g. have been a parameter);
+* on success it leaves any remaining text in the input buffer  
+  which means that e.g. input `1 2 3` can cause undesired client code behavior; and
+* on failure it blithely retries *ad infinitum*  
+  which means that indicating EOF on the input stream (`Ctrl Z` in Windows, `Ctrl D` in Unix) can cause a non-interactive infinite loop in this function.
+
 
 ---
 

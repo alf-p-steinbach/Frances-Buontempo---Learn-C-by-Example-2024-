@@ -665,7 +665,7 @@ The next code snippet is apparently simple,
 
 And it would be nice if it had been named e.g. `input_int`, to make it more clear that it’s not a text line input function like Python’s `input`.
 
-As indicated by the code comment “try a negative number!”, at this point using `unsigned` is ***a pedagogical measure***. It lets the reader *experience* one problem with `unsigned` and allows Frances to then explain that “We can fix this by changing the type to `int`”, and mostly she does that. However, use of `unsigned` persists, probably inadvertently, in *some* later code examples, e.g. in §3.1.3:
+As indicated by the code comment “try a negative number!”, at this point using `unsigned` is ***a pedagogical device***. It lets the reader *experience* one problem with `unsigned` and allows Frances to then explain that “We can fix this by changing the type to `int`”, and mostly she does that. However, use of `unsigned` persists, probably inadvertently, in *some* later code examples, e.g. in §3.1.3:
 
 > ```cpp
 > void guess_number_with_clues(unsigned number, auto message);

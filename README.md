@@ -754,7 +754,7 @@ auto clear_through_eol( istream& stream )
 
 &hellip; where `is_ascii_space` just wraps `std::isspace`, in particular avoids its UB cases.
 
-The (to me) complexity is what the presented code example’s *direct use of `>>`* yields when it’s done properly. And one reason is that also the `>>` operation is a failure to separate concerns: it consumes input text *and* interprets it. Essentially `>>` is constrained by living in the now of the next input stream character.
+The (to me) complexity is what the presented code example’s *direct use of `>>`* yields when it’s done properly. And one reason is that also the `>>` operation is a failure to separate concerns: it consumes input text *and* interprets it, character by character. Essentially `>>` is constrained by living in the now of the next input stream character.
 
 An approach with separation of concerns can
 

@@ -125,17 +125,27 @@ The C++23 example below is unfortunately not given in the book:
 
 auto main() -> int
 {
-    std::print( "Hello, world!\n" );        // Supports Unicode output also in Windows.
+    std::print( "Hello, world!\n" );    // Supports Unicode output also in Windows classic consoles.
 }
 ```
 
 When the book was written compiler support for `std::print` was probably rare. For this review I had to upgrade Visual C++ to compile that code. My usual MinGW g++ compiler (version 11.2.0 from the Nuwen distro) did not support it, but the MSYS2 distro’s MinGW g++ version 14.1.0 did, and even linked successfully when given option `-lstdc++exp`.
 
-The replacement of iostreams output with functionality adopted from [the {fmt} library](https://github.com/fmtlib/fmt), such as `std::print`, is a fundamental change, that I think should have been mentioned for “Hello, world!” &mdash; since book’s focus is the new stuff in modern C++.
+The replacement of iostreams output with functionality adopted from [the {fmt} library](https://github.com/fmtlib/fmt), such as `std::print`, is a fundamental change, that I think should have been mentioned for “Hello, world!” &mdash; since the book’s focus is the new stuff in modern C++.
 
-And also, I think it should have been mentioned how one can use the {fmt} library also with C++17, instead of the currently bleeding edge C++23 `std::print`. Perhaps also that the {fmt} library, but not the adoption in the C++ standard library, supports [colored output via ANSI escapes](#43-exploration-is-encouraged-). I believe that that is of interest to students: they often ask how to do colors.
+And also, I think it should have been mentioned how one can use the {fmt} library also with C++17, instead of the currently bleeding edge C++23 `std::print`. Perhaps also that the {fmt} library, but not the adoption in the C++ standard library, supports [colored output via ANSI escapes](#43-exploration-is-encouraged-). I believe that that is of interest to students: they often ask how to do colors in console output.
 
-And in the area of mentioning problems and not shoving them under the nearest carpet: mentioning that C++ as of C++23 still lacks portable Unicode *console input* functionality, which it should have so that a student also in portable C++ can write a little program that asks for his or her name, and that displays it correctly in a personalized greeting &mdash; the natural “Hello, world!” 2 program.
+And in the area of mentioning problems and not shoving them under the nearest carpet: mentioning that C++ as of C++23 still lacks portable Unicode *console input* functionality, which it should have so that a student can write the natural “Hello, world!” 2  also in portable C++ &mdash; a little program that asks for his or her name, and that displays it correctly in a personalized greeting.
+
+I.e., for “Hello, world!” and “Hello, world!” 2 the big news in modern C++ relative to C++03 are
+
+* that new stuff uses C++11 trailing return type syntax using the `auto` keyword and `->`;
+* that iostreams formatting and output are being replaced with a partial adoption of the {fmt} library; and
+* that archaic iostreams input is still the only type safe console input,
+
+e.g. that portable Unicode console input still not supported, and that `const` variables initialized by calls to input functions are still not supported &mdash; the reasonable modern functionality that someone coming to modern C++ after a hiatus might expect would now be in place, and could waste time searching for unless enlightened by a book such as this.
+
+But this “Hello, world!” chapter only exemplifies the first point.
 
 Nitpick 1: for the deduced return type *discussion* I would have liked mention of and a link to Andrei Alexandrescu’s classic C++03 article [“Min and Max Redivivus”](https://web.archive.org/web/20030114105307/http://www.cuj.com/experts/1904/alexandr.htm).
 
@@ -144,7 +154,7 @@ Nitpick 2: for deduced return type *notation* I prefer to specify that explicitl
 Nitpick 3: `main` is described as “the usual entry point for executable
 code”. The “entry point” term for `main` has unfortunately now been adopted even by cppreference, so this description uses now established terminology and is OK that way. But there’s no need to use that term and using it is very misleading, in two ways: (1) user code can be executed before and after `main`, so `main` is decidely not where execution enters the user code of the program, not to mention the notion of `main` as entry point for executable code, and (2) the term *entry point* used to refer unambigously to the machine code level entry point, the entry point that one specifies to a linker, but now when *entry point* is used also for `main` one may need to clarify (especially to learners) whether one is talking about the *machine code entry point* or the *user code “entry point”*, which should be unnecessary to do.
 
-General impression: the chapter does a good job of pointing out that modern C++ is different from C++03, but is too long-winded about other intro stuff, and as I see it the text really should have mentioned replacing iostreams output with C++23’s `std::print` or the {fmt} library &mdash; a big and fundamental change. 
+General impression: the chapter does a good job of pointing out that modern C++ is different from C++03, but is incomplete in that respect. In particular as I see it the text really should have mentioned replacing iostreams output with C++23’s `std::print` or the {fmt} library &mdash; a big and fundamental change. The chapter is also IMO too long-winded about other intro stuff.
 
 ## 4. Book ch 2 &mdash; “Containers, iterators, and ranges”.
 

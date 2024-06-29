@@ -131,9 +131,9 @@ auto main() -> int
 
 When the book was written compiler support for `std::print` was probably rare. For this review I had to upgrade Visual C++ to compile that code. My usual MinGW g++ compiler (version 11.2.0 from the Nuwen distro) did not support it, but the MSYS2 distro’s MinGW g++ version 14.1.0 did, and even linked successfully when given option `-lstdc++exp`.
 
-The replacement of iostreams output with functionality adopted from [the {fmt} library](https://github.com/fmtlib/fmt), such as `std::print`, is a fundamental change, that I think should have been mentioned for “Hello, world!”.
+The replacement of iostreams output with functionality adopted from [the {fmt} library](https://github.com/fmtlib/fmt), such as `std::print`, is a fundamental change, that I think should have been mentioned for “Hello, world!” &mdash; since book’s focus is the new stuff in modern C++.
 
-And also, how one can use the {fmt} library also with C++17, instead of the currently bleeding edge C++23 `std::print`. Perhaps also mention that the {fmt} library, but not the adoption in the C++ standard library, supports colored output via ANSI escapes. I believe that that is of interest to students: they often ask how to do colors.
+And also, I think it should have been mentioned how one can use the {fmt} library also with C++17, instead of the currently bleeding edge C++23 `std::print`. Perhaps also that the {fmt} library, but not the adoption in the C++ standard library, supports [colored output via ANSI escapes](#43-exploration-is-encouraged-). I believe that that is of interest to students: they often ask how to do colors.
 
 And in the area of mentioning problems and not shoving them under the nearest carpet: mentioning that C++ as of C++23 still lacks portable Unicode *console input* functionality, which it should have so that a student also in portable C++ can write a little program that asks for his or her name, and that displays it correctly in a personalized greeting &mdash; the natural “Hello, world!” 2 program.
 

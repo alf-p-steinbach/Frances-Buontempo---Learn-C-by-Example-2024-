@@ -657,7 +657,7 @@ The next code snippet is apparently simple,
 &hellip; but has the following main issues:
 
 * missing separation of concerns  
-  in particular that this input operation takes charge of the national language and content of the retry prompt (it should e.g. have been a parameter), but also that while it’s intended to read a single number from each input line it fails to address the *consume-a-full-line*, i.e. separation of line input and conversion text to number, which leads to the next point, that
+  in particular that this input operation takes charge of the national language and content of the retry prompt (it should e.g. have been a parameter), but also that while it’s intended to read a single number from each input line it fails to address the *consume-a-full-line*, i.e. separation of line input and conversion of text to number, which leads to the next point, that
 * on success it leaves any remaining text in the input buffer  
   which means that e.g. input `1 2 3` can cause undesired client code behavior; and
 * on failure it blithely retries *ad infinitum*  
@@ -753,6 +753,15 @@ auto clear_through_eol( istream& stream )
 ```
 
 &hellip; where `is_ascii_space` just wraps `std::isspace`, in particular avoids its UB cases.
+
+The (to me) complexity is what the presented code example’s *direct use of `>>`* yields when it’s done properly. And one reason is that also the `>>` operation is a failure to separate concerns: it consumes input text *and* interprets it. Essentially `>>` is constrained by living in the now of the next input stream character.
+
+An approach with separation of concerns can
+
+* separate text line input and parsing, only parsing when a full line has been input;
+* thus also separating fatal input stream errors from parsing failures, which can be more detailed; and
+* support reusable message customization by placing the functionality in a class.
+
 
 ---
 

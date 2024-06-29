@@ -202,6 +202,7 @@ The “and/or”: one doesn’t always need to understand everything about the p
 The book’s section 2.2 “Creating and displaying Pascal’s triangle” presents the following code
 
 > ```cpp
+> // Listing 2.3
 > auto generate_triangle(int rows)
 > {
 >     std::vector<int> data;
@@ -277,7 +278,7 @@ $$ \begin{align*}
         &= (n - r) / (r + 1)
 \end{align*} $$
 
-[*pascal-triangle.incremental.cpp*](code/ch1/pascal-triangle.incremental.cpp):
+[*pascal-triangle.incremental.cpp*](code/ch2/pascal-triangle.incremental.cpp):
 
 ```cpp
 #include <fmt/core.h>
@@ -334,7 +335,7 @@ And that is IMO a good suggestion: doing what’s simple to do. But in addition 
 
 The example below additionally shows &mdash; it would be nice if this had been discussed in the book &mdash; how, with a classic add-the-numbers-above implementation, `std::swap` can be used to reduce the vector dynamic allocations to just 2 regardless of the the triangle size.
 
-[*`pascal-triangle.colored.cpp`*](code/ch1/pascal-triangle.colored.cpp):
+[*`pascal-triangle.colored.cpp`*](code/ch2/pascal-triangle.colored.cpp):
 
 ```cpp
 #include <fmt/color.h>
@@ -442,7 +443,7 @@ Its bewildering that that limitation is not addressed because Frances does menti
 
 Concrete example that “only the values modulo 2, i.e. 0 and 1, need to be calculated”:
 
-[*nested-triangles.cpp*](code/ch1/nested-triangles.cpp):
+[*nested-triangles.cpp*](code/ch2/nested-triangles.cpp):
 
 ```cpp
 #include <fmt/core.h>
@@ -512,7 +513,7 @@ Output:
 █▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄█▄
 ```
 
-Since the image storage is quite minimal there’s not much point in optimizing this further. But in principle for the above approach one only needs *two* `Bits_row` of storage, with one of them representing the previous row in the iteration over rows, just as with the vectors in the previous example. And even that can be dispensed with by calculating the value at any point (*x*, *y*) directly, in constant time!, as just [`!(x & ~y)`](https://www.wolframscience.com/nks/p608--traditional-mathematics-and-mathematical-formulas/); the trick by Stephen Wolfram that I referenced earlier (code example [here](code/ch1/nested-triangles.via-direct-formula.cpp)).
+Since the image storage is quite minimal there’s not much point in optimizing this further. But in principle for the above approach one only needs *two* `Bits_row` of storage, with one of them representing the previous row in the iteration over rows, just as with the vectors in the previous example. And even that can be dispensed with by calculating the value at any point (*x*, *y*) directly, in constant time!, as just [`!(x & ~y)`](https://www.wolframscience.com/nks/p608--traditional-mathematics-and-mathematical-formulas/); the trick by Stephen Wolfram that I referenced earlier (code example [here](code/ch2/nested-triangles.via-direct-formula.cpp)).
 
 In passing, this is again the kind of C++-ish efficient and tight coding example, and background explanation + references, that I wish had been presented in addition to or perhaps instead of checking oddness in a vector-of-vectors storage of range-limited numbers &mdash; it’s an idea for a second edition of the book!
 
@@ -679,7 +680,7 @@ As indicated by the code comment “try a negative number!”, at this point usi
 
 Fixing the above bullet point issues except the full separation of concerns, namely not reading a full line and then converting, but just using `>>` directly, can go like this, which to me is *not simple*:
 
-[*guess-a-number.v0.cpp*](code/ch2/guess-a-number.v0.cpp):
+[*guess-a-number.v0.cpp*](code/ch3/guess-a-number.v0.cpp):
 
 ```cpp
 auto input_int_from_valid_stream(

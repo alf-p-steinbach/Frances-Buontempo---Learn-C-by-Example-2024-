@@ -626,7 +626,7 @@ In particular, nothing prevents a conventional `const` constant from being initi
 
 ---
 
-The next code snippet,
+The next code snippet is apparently simple,
 
 > ```cpp
 > // Listing 3.2
@@ -643,10 +643,10 @@ The next code snippet,
 > }
 > ```
 
-&hellip; has the following issues:
+&hellip; but has the following main issues:
 
 * missing separation of concerns  
-  in particular that this input operation takes charge of the national language and content of the retry prompt (it should e.g. have been a parameter);
+  in particular that this input operation takes charge of the national language and content of the retry prompt (it should e.g. have been a parameter), but also that while it’s intended to read a single number from each input line it fails to address the *consume-a-full-line*, i.e. separation of line input and conversion text to number, which leads to the next point, that
 * on success it leaves any remaining text in the input buffer  
   which means that e.g. input `1 2 3` can cause undesired client code behavior; and
 * on failure it blithely retries *ad infinitum*  
@@ -654,7 +654,7 @@ The next code snippet,
 
 And it would be nice if it had been named e.g. `input_int`, to make it more clear that it’s not a text line input function like Python’s `input`.
 
-As indicated by the code comment “try a negative number!”. at this point using `unsigned` is ***a pedagogical measure***. For later Frances explains that “We can fix this by changing the type to `int`”, and mostly she does that. However, use of `unsigned` persists, probably inadvertently, in *some* later code examples, e.g. in §3.1.3:
+As indicated by the code comment “try a negative number!”, at this point using `unsigned` is ***a pedagogical measure***. It lets the reader *experience* one problem with `unsigned` and allows Frances to then explain that “We can fix this by changing the type to `int`”, and mostly she does that. However, use of `unsigned` persists, probably inadvertently, in *some* later code examples, e.g. in §3.1.3:
 
 > ```cpp
 > void guess_number_with_clues(unsigned number, auto message);
@@ -667,10 +667,81 @@ As indicated by the code comment “try a negative number!”. at this point usi
 >     std::invocable<int, int> auto message)
 > ```
 
+Fixing the above bullet point issues except the full separation of concerns, namely not reading a full line and then converting, but just using `>>` directly, can go like this, which to me is *not simple*:
 
+[*guess-a-number.v0.cpp*](code/ch2/guess-a-number.v0.cpp):
 
-Fixing the above bullet point issues can go like this:
+```cpp
+auto input_int_from_valid_stream(
+    in_<string_view>    prompt,
+    in_<string_view>    invalid_message = invalid_spec_default_msg,
+    in_<string_view>    noise_message   = noise_default_msg
+    ) -> int
+{
+    for( ;; ) {
+        fmt::print( "{}", prompt );
+        int result;
+        cin >> result;
 
+        using CR = Clearing_result;
+        const bool success = not cin.fail();
+        if( success ) {
+            switch( clear_through_eol( cin ) ) {
+                case CR::all_space:        { return result; }
+                case CR::not_all_space:    { fmt::print( "{}\n", noise_message );  break; }
+                case CR::error:            { fail( cin_failure_msg ); }
+            }
+        } else if( cin.eof() ) {
+            fail( cin_eof_msg );
+        } else {
+            cin.clear();        // Clear all failure mode flags.
+            switch( clear_through_eol( cin ) ) {
+                case CR::all_space:        { fail( cin_mystery_msg ); }
+                case CR::not_all_space:    { fmt::print( "{}\n", invalid_message );  break; }
+                case CR::error:            { fail( cin_failure_msg ); }
+            }
+        }
+    }
+    for( ;; ) {}        // Should never get here (avoids possible silly-warning).
+}
+
+auto input_int(
+    in_<string_view>    prompt,
+    in_<string_view>    invalid_message = invalid_spec_default_msg,
+    in_<string_view>    noise_message   = noise_default_msg
+    ) -> int
+{
+    if( cin.eof() ) { fail( cin_eof_msg ); }
+    else if( cin.fail() ) { fail( cin_failure_msg ); }
+
+    return input_int_from_valid_stream( prompt, invalid_message, noise_message );
+}
+```
+
+This uses some support functionality, in particular the `clear_through_eol` function which unlike `cin.ignore` returns a generally useful and here critical indication of what it removed:
+
+```cpp
+struct Clearing_result{ enum Enum{ all_space, not_all_space, error }; };
+
+auto clear_through_eol( istream& stream )
+    -> Clearing_result::Enum
+{
+    auto result = Clearing_result::all_space;
+    for( ;; ) {
+        const char ch = char( stream.get() );
+        if( stream.fail() ) {
+            return (stream.eof()? result : Clearing_result::error);
+        }
+        if( ch == '\n' ) {
+            return result;
+        }
+        if( not is_ascii_space( ch ) ) { result = Clearing_result::not_all_space; }
+    }
+    for( ;; ) {}        // Should never get here (avoids possible silly-warning).
+}
+```
+
+&hellip; where `is_ascii_space` just wraps `std::isspace`, in particular avoids its UB cases.
 
 ---
 

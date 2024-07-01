@@ -230,7 +230,7 @@ Storing a full Pascal’s triangle requires at most one vector, with a single bu
 
 A C++-ish efficiency oriented perspective usually starts with *understanding* what the task is about, i.e. analysis, and not, in the case of Pascal’s triangle, just remembering the mechanics of one way to generate it.
 
-Probably Pascal was investigating the coefficients of the terms that you get when you multiply out $(a + b)^n$, but whether he did or not, that’s a good starting point. For example, $(a + b)^2 = a^2 + 2ab + b^2$, with coefficients **1**, **2** and **1**, which are the third line in Pascal’s triangle. So what do you get when you multiply that by $(a + b)$ again, thus forming $(a + b)^3$?
+Probably Blaise Pascal was investigating the coefficients of the terms that you get when you multiply out $(a + b)^n$, but whether he did or not, that’s a good starting point. For example, $(a + b)^2 = a^2 + 2ab + b^2$, with coefficients **1**, **2** and **1**, which are the third line in Pascal’s triangle. So what do you get when you multiply that by $(a + b)$ again, thus forming $(a + b)^3$?
 
 Well, $a$ and $b$ are on an equal footing so the result will necessarily be symmetrical, as 1, 2 and 1 is:
 

@@ -32,6 +32,7 @@ auto binomial( const int n, const int r )
 // so here color escape sequences are added after a full output line has been formatted. It is
 // a bit of stringly typed code, interpreting parts of the line as numbers, but so be it.
 auto colored_pascal_triangle_line( in_<string> line )
+    -> string
 {
     string result;
     string part;

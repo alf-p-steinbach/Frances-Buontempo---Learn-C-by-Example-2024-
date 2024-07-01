@@ -226,7 +226,7 @@ With vectors copying *can* also introduce costly dynamic allocations, so it is a
 
 A focus on the real inefficency, the dynamic allocations, would lead one to ditch the vector of vectors with at least one dynamic allocation per vector, and one would seek to avoid multiple creations of a vector such as with the above repeated calls of `get_next_row` (ditto).
 
-Storing a full Pascal’s triangle requires at most one vector, with a single buffer allocation, and this is the generally recommended way to implement a matrix. Generating a Pascal’s triangle can very easily be reduced to using two vectors, as I show in this review’s [section 4.3](#43-exploration-is-encouraged-). And with some analysis, shown below, it can be reduced all the way to simple incremental calculation of each number, requiring no vectors at all &mdash; no dynamic allocations.
+Storing a full Pascal’s triangle requires at most one vector, with a single buffer allocation, and this is the generally recommended way to implement a matrix. Generating a Pascal’s triangle can very easily be reduced to using two vectors, reducing memory usage from O($n^2$) to O($n$), as I show in this review’s [section 4.3](#43-exploration-is-encouraged-). And with some analysis, shown below, it can be reduced all the way to simple incremental calculation of each number, requiring no vectors at all &mdash; no dynamic allocations and O(1) storage.
 
 A C++-ish efficiency oriented perspective usually starts with *understanding* what the task is about, i.e. analysis, and not, in the case of Pascal’s triangle, just remembering the mechanics of one way to generate it.
 
@@ -235,7 +235,7 @@ Probably Pascal was investigating the coefficients of the terms that you get whe
 Well, $a$ and $b$ are on an equal footing so the result will necessarily be symmetrical, as 1, 2 and 1 is:
 
 $$ \begin{align*}
-    (a + b)\cdot(a^2 + 2ab + b^2) &= a\cdot(a^2 + 2ab + b^2. + b\cdot(a^2 + 2ab + b^2)\\
+    (a + b)\cdot(a^2 + 2ab + b^2) &= a\cdot(a^2 + 2ab + b^2) + b\cdot(a^2 + 2ab + b^2)\\
     \\
     &= (a^3 + 2a^2b + ab^2) + (a^2b + 2ab^2 + b^3)
 \end{align*} $$
@@ -685,8 +685,8 @@ Fixing the above bullet point issues except the full separation of concerns, nam
 ```cpp
 auto input_int_from_valid_stream(
     in_<string_view>    prompt,
-    in_<string_view>    invalid_message = invalid_spec_default_msg,
-    in_<string_view>    noise_message   = noise_default_msg
+    in_<string_view>    invalid_spec_message    = invalid_spec_default_msg,
+    in_<string_view>    noise_message           = noise_default_msg
     ) -> int
 {
     for( ;; ) {
@@ -708,7 +708,7 @@ auto input_int_from_valid_stream(
             cin.clear();        // Clear all failure mode flags.
             switch( clear_through_eol( cin ) ) {
                 case CR::all_space:        { fail( cin_mystery_msg ); }
-                case CR::not_all_space:    { fmt::print( "{}\n", invalid_message );  break; }
+                case CR::not_all_space:    { fmt::print( "{}\n", invalid_spec_message );  break; }
                 case CR::error:            { fail( cin_failure_msg ); }
             }
         }

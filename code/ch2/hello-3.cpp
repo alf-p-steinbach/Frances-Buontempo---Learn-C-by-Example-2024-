@@ -7,15 +7,15 @@ using   std::cin,                           // <iostream>
         std::getline, std::string,          // <string>
         std::string_view;                   // <string_view>
 
+#ifdef _WIN32           // Windows, 32-bit or 64-bit.
+    #include <stdlib.h>     // `::system`
+    inline const int dummy_for_setting_utf8_encoding_in_console = system( "chcp 65001 >nul" );
+#endif
+
 namespace my {
     using Byte = unsigned char;
     template< class T > using in_ = const T&;
 
-    #ifdef _WIN32           // Windows, 32-bit or 64-bit.
-        #include <stdlib.h>     // `::system`
-        inline const int dummy_for_setting_utf8_encoding_in_console = system( "chcp 65001 >nul" );
-    #endif
-            
     auto input_line() -> string
     {
         // TODO: replace with infinite-input-safe line collection from C level `stdin`,

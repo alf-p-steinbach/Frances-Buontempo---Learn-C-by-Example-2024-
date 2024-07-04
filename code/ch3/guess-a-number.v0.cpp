@@ -19,21 +19,21 @@ namespace cpp_machinery {
 
     auto is_ascii_space( const Byte code ) -> bool { return (code < 128 and ::isspace( code )); }
 
-    struct Clearing_result{ enum Enum{ all_space, not_all_space, error }; };
+    struct Discard_result{ enum Enum{ all_space, not_all_space, error }; };
 
-    auto clear_through_eol( istream& stream )
-        -> Clearing_result::Enum
+    auto discard_through_eol( istream& stream )
+        -> Discard_result::Enum
     {
-        auto result = Clearing_result::all_space;
+        auto result = Discard_result::all_space;
         for( ;; ) {
             const char ch = char( stream.get() );
             if( stream.fail() ) {
-                return (stream.eof()? result : Clearing_result::error);
+                return (stream.eof()? result : Discard_result::error);
             }
             if( ch == '\n' ) {
                 return result;
             }
-            if( not is_ascii_space( ch ) ) { result = Clearing_result::not_all_space; }
+            if( not is_ascii_space( ch ) ) { result = Discard_result::not_all_space; }
         }
         for( ;; ) {}        // Should never get here (avoids possible silly-warning).
     }
@@ -58,8 +58,8 @@ namespace cpp_machinery {
 
     auto input_int_from_valid_stream(
         in_<string_view>    prompt,
-        in_<string_view>    invalid_message = invalid_spec_default_msg,
-        in_<string_view>    noise_message   = noise_default_msg
+        in_<string_view>    invalid_spec_message    = invalid_spec_default_msg,
+        in_<string_view>    noise_message           = noise_default_msg
         ) -> int
     {
         for( ;; ) {
@@ -67,10 +67,10 @@ namespace cpp_machinery {
             int result;
             cin >> result;
 
-            using CR = Clearing_result;
+            using CR = Discard_result;
             const bool success = not cin.fail();
             if( success ) {
-                switch( clear_through_eol( cin ) ) {
+                switch( discard_through_eol( cin ) ) {
                     case CR::all_space:        { return result; }
                     case CR::not_all_space:    { fmt::print( "{}\n", noise_message );  break; }
                     case CR::error:            { fail( cin_failure_msg ); }
@@ -79,9 +79,9 @@ namespace cpp_machinery {
                 fail( cin_eof_msg );
             } else {
                 cin.clear();        // Clear all failure mode flags.
-                switch( clear_through_eol( cin ) ) {
+                switch( discard_through_eol( cin ) ) {
                     case CR::all_space:        { fail( cin_mystery_msg ); }
-                    case CR::not_all_space:    { fmt::print( "{}\n", invalid_message );  break; }
+                    case CR::not_all_space:    { fmt::print( "{}\n", invalid_spec_message );  break; }
                     case CR::error:            { fail( cin_failure_msg ); }
                 }
             }

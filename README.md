@@ -594,7 +594,7 @@ Happily, apparently in the time between the book was published and the writing o
 
 So maybe Frances has the same foresight as Andrew Koenig, who as I recall replied that some apparent oversight or error was not that, because the description would in a short time *be* standard&hellip;
 
-But still it would be worth mentioning that in order to support niche environments such as the mentioned GIT bash and MSYS2 bash, the [Boost NoWide library](https://www.boost.org/doc/libs/master/libs/nowide/doc/html/index.html) can be used for portable Unicode console string input.
+But still it would be worth mentioning that in order to support niche environments such as GIT bash and the mentioned MSYS2 bash, the [Boost NoWide library](https://www.boost.org/doc/libs/master/libs/nowide/doc/html/index.html) can be used for portable Unicode console string input.
 
 ### 6.2 Missing discussion of floating point input and C++03 → C++11 difference.
 

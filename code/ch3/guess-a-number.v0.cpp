@@ -1,4 +1,3 @@
-
 #include <fmt/core.h>
 
 #include <cassert>          // assert
@@ -78,6 +77,7 @@ namespace cpp_machinery {
             } else if( cin.eof() ) {
                 fail( cin_eof_msg );
             } else {
+                // A possible parsing failure, but it could be a hard stream error.
                 cin.clear();        // Clear all failure mode flags.
                 switch( discard_through_eol( cin ) ) {
                     case CR::all_space:        { fail( cin_mystery_msg ); }

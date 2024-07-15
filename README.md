@@ -655,7 +655,7 @@ The next code snippet is apparently simple,
 > }
 > ```
 
-&hellip; but has the following main issues:
+&hellip; but in addition to the use of `unsigned` has the following main issues:
 
 * missing separation of concerns  
   in particular that this input operation takes charge of the national language and content of the retry prompt (it should e.g. have been a parameter), but also that while it’s intended to read a single number from each input line it fails to address the *consume-a-full-line*, i.e. separation of line input and conversion of text to number, which leads to the next point, that
@@ -666,7 +666,7 @@ The next code snippet is apparently simple,
 
 And it would be nice if it had been named e.g. `input_int`, to make it more clear that it’s not a text line input function like Python’s `input`.
 
-As indicated by the code comment “try a negative number!”, at this point using `unsigned` is ***a pedagogical device***. It lets the reader *experience* one problem with `unsigned` and allows Frances to then explain that “We can fix this by changing the type to `int`”, and mostly she does that. However, use of `unsigned` persists, probably inadvertently, in *some* later code examples, e.g. in §3.1.3:
+As indicated by the code comment “try a negative number!” the `unsigned` is (clearly) a pedagogical device. It lets the reader *experience* one problem with `unsigned` and allows Frances to then explain that “We can fix this by changing the type to `int`”, and mostly she does that. However, use of `unsigned` persists, probably inadvertently, in *some* later code examples, e.g. in §3.1.3:
 
 > ```cpp
 > void guess_number_with_clues(unsigned number, auto message);
@@ -679,91 +679,13 @@ As indicated by the code comment “try a negative number!”, at this point usi
 >     std::invocable<int, int> auto message)
 > ```
 
-Fixing the above bullet point issues except the full separation of concerns, namely not reading a full line and then converting, but just using `>>` directly, can go like this, which to me is *not simple*:
+To me it would have been nice, “even better”, if the use of the pedagogical device had been explained up front: that it was *intentional* and temporary, something to be fixed.
 
-[*guess-a-number.v0.cpp*](code/ch3/guess-a-number.v0.cpp):
-
-```cpp
-auto input_int_from_valid_stream(
-    in_<string_view>    prompt,
-    in_<string_view>    invalid_spec_message    = invalid_spec_default_msg,
-    in_<string_view>    noise_message           = noise_default_msg
-    ) -> int
-{
-    for( ;; ) {
-        fmt::print( "{}", prompt );
-        int result;
-        cin >> result;
-
-        using CR = Clearing_result;
-        const bool success = not cin.fail();
-        if( success ) {
-            switch( clear_through_eol( cin ) ) {
-                case CR::all_space:        { return result; }
-                case CR::not_all_space:    { fmt::print( "{}\n", noise_message );  break; }
-                case CR::error:            { fail( cin_failure_msg ); }
-            }
-        } else if( cin.eof() ) {
-            fail( cin_eof_msg );
-        } else {
-            cin.clear();        // Clear all failure mode flags.
-            switch( clear_through_eol( cin ) ) {
-                case CR::all_space:        { fail( cin_mystery_msg ); }
-                case CR::not_all_space:    { fmt::print( "{}\n", invalid_spec_message );  break; }
-                case CR::error:            { fail( cin_failure_msg ); }
-            }
-        }
-    }
-    for( ;; ) {}        // Should never get here (avoids possible silly-warning).
-}
-
-auto input_int(
-    in_<string_view>    prompt,
-    in_<string_view>    invalid_message = invalid_spec_default_msg,
-    in_<string_view>    noise_message   = noise_default_msg
-    ) -> int
-{
-    if( cin.eof() ) { fail( cin_eof_msg ); }
-    else if( cin.fail() ) { fail( cin_failure_msg ); }
-
-    return input_int_from_valid_stream( prompt, invalid_message, noise_message );
-}
-```
-
-This uses some support functionality, in particular the `clear_through_eol` function which unlike `cin.ignore` returns a generally useful and here critical indication of what it removed:
-
-```cpp
-struct Clearing_result{ enum Enum{ all_space, not_all_space, error }; };
-
-auto clear_through_eol( istream& stream )
-    -> Clearing_result::Enum
-{
-    auto result = Clearing_result::all_space;
-    for( ;; ) {
-        const char ch = char( stream.get() );
-        if( stream.fail() ) {
-            return (stream.eof()? result : Clearing_result::error);
-        }
-        if( ch == '\n' ) {
-            return result;
-        }
-        if( not is_ascii_space( ch ) ) { result = Clearing_result::not_all_space; }
-    }
-    for( ;; ) {}        // Should never get here (avoids possible silly-warning).
-}
-```
-
-&hellip; where `is_ascii_space` just wraps `std::isspace`, in particular avoids its UB cases.
-
-The (to me) complexity is what the presented code example’s *direct use of `>>`* yields when it’s done properly. And one reason is that also the `>>` operation is a failure to separate concerns: it consumes input text *and* interprets it, character by character. Essentially `>>` is constrained by living in the now of the next input stream character.
-
-An approach with separation of concerns can
-
-* separate text line input and parsing, only parsing when a full line has been input;
-* thus also separating fatal input stream errors from parsing failures, which can be more detailed; and
-* support reusable message customization by placing the functionality in a class.
+Fixing the bullet points above would add some long-winded, non-trivial code. That code complexity for a critical part suggests that the book could do with a little **support library**. Then instead of presenting a complex and long-winded continuity-breaking solution for whatever issue at hand, the text could just present an interface and explain how to use it, why it’s needed, and where to find the full implementation.
 
 
+
+.
 ---
 
 xxx
